@@ -35,7 +35,6 @@ namespace TicketFlow.ViewModels
         {
             ActivateItemAsync(new DashboardViewModel());
             ActiveItemTitle = "Dashboard";
-
         }
 
         public void LoadtableView()
@@ -54,7 +53,6 @@ namespace TicketFlow.ViewModels
         {
             ActiveItemTitle = "About";
             ActivateItemAsync(new AboutViewModel());
-
         }
 
         public void LoadLogin()

@@ -10,10 +10,38 @@
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>
-    <Grid Effect="{StaticResource Shadow}">
-        <TextBlock FontSize="33">
-            About
-        </TextBlock>
+    <Grid>
+        <Border CornerRadius="12">
 
+            <!--background image-->
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/UserPic.png"
+                        Stretch="UniformToFill"/>
+            </Border.Background>
+
+            <!--main background-->
+            <Border CornerRadius="12"
+            BorderThickness="2"
+            Opacity="0.90">
+                <!--border style-->
+
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <!--background style-->
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
+                        <GradientStop Color="{StaticResource primaryBackcolor2}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+            </Border>
+        </Border>
     </Grid>
 </UserControl>

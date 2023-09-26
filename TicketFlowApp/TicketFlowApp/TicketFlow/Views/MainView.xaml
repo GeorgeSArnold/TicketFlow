@@ -138,16 +138,16 @@
                                 </StackPanel>
                             </RadioButton>
 
-                            <!--logout-->
+                            <!--login-->
                         </StackPanel>
-                        <RadioButton Style="{StaticResource menuButton}" 
+                        <RadioButton Style="{StaticResource logoutButtonStyle}" 
                                      
                                      x:Name="LoadLogin"
                                      
                                      Tag="{StaticResource color1}" VerticalAlignment="Bottom">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Logout" Style="{StaticResource menuButtonText}"/>
+                                <TextBlock Text="Login Options" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                     </DockPanel>

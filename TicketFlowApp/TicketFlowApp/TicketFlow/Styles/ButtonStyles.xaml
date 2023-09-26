@@ -115,6 +115,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border Background="{TemplateBinding Background}"
+                            CornerRadius="12"
                         BorderThickness="4,0,0,0"
                         BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter HorizontalAlignment="Left"

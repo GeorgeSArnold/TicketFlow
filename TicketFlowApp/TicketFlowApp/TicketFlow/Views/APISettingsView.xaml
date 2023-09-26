@@ -11,82 +11,43 @@
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>
+    <Grid>
+        <Border CornerRadius="12">
+
+            <!--background image-->
+
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/optionbg.png"
+                        Stretch="Uniform"/>
+            </Border.Background>
 
 
-    <Grid Effect="{StaticResource Shadow}">
-        <Grid.ColumnDefinitions>
+            <!--main background-->
+            <Border CornerRadius="12"
+            BorderThickness="2"
+            Opacity="0.92">
+                <!--border style-->
 
-            <ColumnDefinition Width="auto"/>
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
 
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-
-        <!--header-->
-        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="33" Margin="10">
-            API Settings View
-        </TextBlock>
-
-        <!--Options-->
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="12"
-            Orientation="Vertical" HorizontalAlignment="Center">
-            <TextBlock FontSize="22">
-                Zammad API Token
-            </TextBlock>
-            <TextBox HorizontalAlignment="Center" Width="342" Foreground="Silver" Margin="10">
-                insert token here...
-            </TextBox>
-            <!--check btn-->
-            <Button Margin="6">
-                check
-            </Button>
-
-            <Button Margin="6">
-                save
-            </Button>
+                <!--background style-->
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
+                        <GradientStop Color="{StaticResource primaryBackcolor2}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
 
-            <TextBlock FontSize="22" >
-                ChatGpt API Token
-            </TextBlock>
-            <TextBox Foreground="silver" Margin="10">
-                insert token here...
-            </TextBox>
-            <!--check btn-->
-            <Button Margin="6">
-                check
-            </Button>
 
-            <Button Margin="6">
-                save
-            </Button>
-        </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" Margin="10">
-            <TextBlock >
-                Status
-            </TextBlock>
-
-            <TextBlock Margin="15">
-                Zammad:
-            </TextBlock>
-            <!--status gpt-->
-            <TextBlock Text="OK" HorizontalAlignment="Center"/>
-
-            <TextBlock Margin="15">
-                ChatGpt:
-            </TextBlock>
-            <TextBlock/>
-            <!--status gpt-->
-            <TextBlock Text="OK" HorizontalAlignment="Center"/>
-        </StackPanel>
-
+            </Border>
+        </Border>
     </Grid>
 </UserControl>
