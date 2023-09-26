@@ -42,3 +42,4 @@ C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\APISetti
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\APISettingsView.baml
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\LoginView.g.cs
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\LoginView.baml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\DatagridStyle.baml

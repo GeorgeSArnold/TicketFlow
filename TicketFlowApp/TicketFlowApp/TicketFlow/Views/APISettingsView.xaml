@@ -11,6 +11,7 @@
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>
+
     <Grid>
         <Border CornerRadius="12">
 
@@ -18,14 +19,14 @@
 
             <Border.Background>
                 <ImageBrush ImageSource="/Images/optionbg.png"
-                        Stretch="Uniform"/>
+                            Stretch="Uniform"/>
             </Border.Background>
 
-
+            
             <!--main background-->
             <Border CornerRadius="12"
-            BorderThickness="2"
-            Opacity="0.92">
+                    BorderThickness="2"
+                    Opacity="0.92">
                 <!--border style-->
 
                 <Border.BorderBrush>
@@ -44,9 +45,36 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
+                <Grid Margin="30,100,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Foreground="WhiteSmoke"
+                                   FontSize="18"
+                                   Margin="10">
+                            save your tokens here...
+                        </TextBlock>
+                        
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="Zammad Token:" Foreground="WhiteSmoke" Margin="7"/>
+                        <TextBox x:Name="zammadTokenTextBox" Width="300" Background="#6F8090"/>
+                    </StackPanel>
 
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+                        <TextBlock Text="ChatGPT Token:" Foreground="WhiteSmoke" Margin="7"/>
+                        <TextBox x:Name="chatGPTTokenTextBox" Width="300" Background="#6F8090"/>
+                    </StackPanel>
 
+                        <Button Grid.Row="4" Content="Save Settings" Width="100" HorizontalAlignment="Center" Margin="20" Click="SaveTokens_Click"/>
+                    </StackPanel>
+
+                    
+                </Grid>
             </Border>
         </Border>
     </Grid>

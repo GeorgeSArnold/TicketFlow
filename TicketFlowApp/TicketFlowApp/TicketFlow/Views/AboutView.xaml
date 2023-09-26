@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TicketFlow.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#495E67">
+             Background="Transparent">
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>

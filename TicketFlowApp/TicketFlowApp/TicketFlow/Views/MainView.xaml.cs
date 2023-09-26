@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,8 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TicketFlow.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace TicketFlow.Views
 {
@@ -21,9 +25,13 @@ namespace TicketFlow.Views
     /// </summary>
     public partial class MainView : Window
     {
+
+
         public MainView()
         {
             InitializeComponent();
+
+
         }
 
         [DllImport("user32.dll")]

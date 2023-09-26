@@ -216,7 +216,7 @@
                             <TextBlock 
                                 Foreground="White" 
                                 Text="{Binding ActiveItemTitle}" 
-                                FontSize="22"/>
+                                FontSize="18"/>
                         </StackPanel>
 
                         <!--header / Caption-->
