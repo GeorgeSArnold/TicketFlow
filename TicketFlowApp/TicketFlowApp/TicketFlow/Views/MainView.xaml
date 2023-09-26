@@ -40,8 +40,8 @@
             <!-- border -->
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                    <GradientStop Color="LightSlateGray" Offset="0"/>
+                    <GradientStop Color="Silver" Offset="0.24"/>
                     <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
@@ -275,8 +275,6 @@
                                         
                                         Grid.Row="2"                                
                                         Margin="10"/>
-
-
                     </Grid>
                 </Border>
             </Grid>

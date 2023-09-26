@@ -137,7 +137,6 @@
         </Style.Triggers>
     </Style>
 
-    <!---->
     <!-- icon btn style-->
     <Style x:Key="iconButton" TargetType="Button">
         <!--normal button style-->
@@ -169,13 +168,35 @@
         <Setter Property="Width" Value="16"/>
         <Setter Property="Height" Value="16"/>
     </Style>
+    
+    <!-- edit btn style -->
+    <Style x:Key="editButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#C5B2E7"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                        BorderThickness="1"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/icons8-ticket.png" 
+                               Width="12" Height="12" VerticalAlignment="Center"/>
+                            <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
 
-
-
-
-
-
-
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightSlateGray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TicketFlow.Views"
              mc:Ignorable="d"
-             Background="#495E67"
-             d:DesignHeight="450" d:DesignWidth="800">
+             Background="Transparent"
+             d:DesignHeight="500" d:DesignWidth="800">
 
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
@@ -16,22 +16,20 @@
         <Border CornerRadius="12">
 
             <!--background image-->
-
             <Border.Background>
                 <ImageBrush ImageSource="/Images/optionbg.png"
-                            Stretch="Uniform"/>
+                        Stretch="Fill"/>
             </Border.Background>
 
-            
             <!--main background-->
             <Border CornerRadius="12"
-                    BorderThickness="2"
-                    Opacity="0.92">
+            BorderThickness="2"
+            Opacity="0.94">
+                
                 <!--border style-->
-
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                     </LinearGradientBrush>
@@ -45,35 +43,179 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <Grid Margin="30,100,0,0">
+                <!--title bar-->
+                <Grid Effect="{StaticResource Shadow}">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel HorizontalAlignment="Center">
-                        <TextBlock Foreground="WhiteSmoke"
-                                   FontSize="18"
-                                   Margin="10">
-                            save your tokens here...
-                        </TextBlock>
-                        
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
-                        <TextBlock Text="Zammad Token:" Foreground="WhiteSmoke" Margin="7"/>
-                        <TextBox x:Name="zammadTokenTextBox" Width="300" Background="#6F8090"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="5"/>
+                        </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
-                        <TextBlock Text="ChatGPT Token:" Foreground="WhiteSmoke" Margin="7"/>
-                        <TextBox x:Name="chatGPTTokenTextBox" Width="300" Background="#6F8090"/>
-                    </StackPanel>
+                    </Grid>
 
-                        <Button Grid.Row="4" Content="Save Settings" Width="100" HorizontalAlignment="Center" Margin="20" Click="SaveTokens_Click"/>
-                    </StackPanel>
+                    <!--menu elements-->
+                    <StackPanel Width="250"
+                                Grid.Row="2"
+                                Orientation="Vertical"
+                                Margin="0,5,0,0">
 
-                    
+                        <!--head article-->
+                        <TextBlock Text="Setup your Server IP and Tokens to use the Application properly"
+                                   Foreground="LightGray"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   HorizontalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="5" Width="246"/>
+
+                        <!--server ip-->
+                        <TextBlock Text="Zammad Server IP"
+                                   Foreground="DarkGray"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,15,0,0"/>
+                        <TextBox x:Name="txtBoxServerIP"
+                             Text=""
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="35,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/icons8-server-30.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <!--zammad token-->
+                        <TextBlock Text="Zammad Token"
+                                   Foreground="DarkGray"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,15,0,0"/>
+                        <TextBox x:Name="txtBoxZammadToken"
+                             Text=""
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="35,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/zammad_vektor.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <!--ChatGPT token-->
+                        <TextBlock Text="ChatGPT Token"
+                                   Foreground="DarkGray"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,15,0,0"/>
+                        <TextBox x:Name="txtChatgptToken"
+                             Text=""
+                             FontSize="13"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"
+                             Foreground="White"
+                             CaretBrush="LightGray"
+                             BorderBrush="DarkGray"
+                             BorderThickness="0,0,0,1"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Margin="0,5,0,0"
+                             Padding="35,0,0,0">
+
+                            <TextBox.Background>
+                                <ImageBrush ImageSource="/Images/icons8-chatgpt-30.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <!--login button-->
+                        <Button x:Name="btnSaveSettings"
+                            BorderThickness="0.9"
+                            Content="Save Settings"
+                            Foreground="WhiteSmoke"
+                            FontSize="20"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Margin="0,20,0,10"
+                            Click="btnSaveSettings_Click">
+
+                            <!--mouseover effect-->
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#54626D"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="White"/>
+                                        </Trigger>
+
+                                        <!--pressed shadow effect-->
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="Black" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!--custum error message-->
+                        <TextBlock Text="invalid Token or IP!"                       
+                                   Foreground="#D75960"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,3,0,0"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center"/>
+
+                    </StackPanel>
                 </Grid>
             </Border>
         </Border>

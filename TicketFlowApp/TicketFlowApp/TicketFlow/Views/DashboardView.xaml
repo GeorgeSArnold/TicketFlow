@@ -7,7 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image Source="/Images/dashboard.png"
-               Stretch="Uniform"/>
+        <Border>
+            <!--background image-->
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/dashboard.png"
+                        Stretch="Fill"/>
+                </Border.Background>
+
+            <Border CornerRadius="12"
+            BorderThickness="2"
+            Opacity="0.98">
+                
+                <!--border style-->
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+
+        </Border>
     </Grid>
 </UserControl>

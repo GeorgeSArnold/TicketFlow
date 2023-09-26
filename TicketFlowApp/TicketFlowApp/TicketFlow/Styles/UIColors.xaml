@@ -9,7 +9,6 @@
     <Color x:Key="secondaryBackcolor3">#1E1E1E</Color>
     <Color x:Key="secondaryBackcolor4">#2E2E2E</Color>
 
-
     <!--window border-->
     <Color x:Key="winBorderColor1">#AA87E0</Color>
     <Color x:Key="winBorderColor2">#C4A9EB</Color>
@@ -39,11 +38,5 @@
     <SolidColorBrush x:Key="panelcolor" Color="#200F53"/>
     <SolidColorBrush x:Key="panelOverColor" Color="#55366A"/>
     <SolidColorBrush x:Key="panelActiveColor" Color="#492F7A"/>
-
-    <!--buttons-->
-
-    <!--Textbox-->
-
-    <!--etc-->
 
 </ResourceDictionary>

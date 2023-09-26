@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TicketFlow.Views
 {
     /// <summary>
-    /// Interaction logic for APISettingsView.xaml
+    /// Interaction logic for EditView.xaml
     /// </summary>
-    public partial class APISettingsView : UserControl
+    public partial class EditView : Window
     {
-        public APISettingsView()
+        public EditView()
         {
             InitializeComponent();
-        }
-
-        private void SaveTokens_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

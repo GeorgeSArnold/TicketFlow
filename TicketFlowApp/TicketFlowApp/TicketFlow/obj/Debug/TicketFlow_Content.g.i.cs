@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/optionbg.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/ticketbg.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/icons8-ticket-hinzuf%c3%bcgen.png")]
 
 

@@ -6,12 +6,11 @@
              xmlns:local="clr-namespace:TicketFlow.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="Transparent"
-             >
+             Background="Transparent">
+
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>
-
 
     <Grid>
         <Border CornerRadius="12">
@@ -22,7 +21,6 @@
                         Stretch="Fill"/>
             </Border.Background>
 
-
             <!--main background-->
             <Border CornerRadius="12"
             BorderThickness="2"
@@ -31,7 +29,7 @@
 
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                        <GradientStop Color="WhiteSmoke" Offset="0"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                     </LinearGradientBrush>
@@ -46,8 +44,13 @@
                 </Border.Background>
 
                 <!-- DataGrid -->
-                <DataGrid x:Name="ticketsDataGrid"
-                          Style="{StaticResource DataGridStyle1}" 
+                <DataGrid Style="{DynamicResource DataGridStyle1}" 
+                          CellStyle="{DynamicResource DataGridCellStyle1}" 
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                          RowStyle="{DynamicResource DataGridRowStyle1}" 
+                          
+                          x:Name="ticketsDataGrid"
+                          
                           AutoGenerateColumns="False" Margin="10" HorizontalAlignment="Stretch" 
                           VerticalAlignment="Stretch"
                           SelectionUnit="Cell" IsReadOnly="True">
@@ -57,7 +60,6 @@
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                         <DataGridTextColumn Header="Created" Binding="{Binding Created}"/>
                         <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                        <!--<DataGridTextColumn Header="Operations" Binding="{Binding Status}"/>-->
 
                         <!-- Operations Column -->
                         <DataGridTemplateColumn Header="Operations">
@@ -65,18 +67,17 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <!-- Edit Button -->
-                                        <Button Content="Edit" Click="EditButton_Click"/>
+                                        <Button Content="Edit"
+                                                Style="{StaticResource editButton}">
+                                            
+                                        </Button>
                                         <!-- Delete Button -->
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
                 </DataGrid>
-
-
-
             </Border>
         </Border>
     </Grid>
