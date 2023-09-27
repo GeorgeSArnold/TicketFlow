@@ -42,7 +42,6 @@
         </Style.Triggers>
     </Style>
 
-    <!--ICONS-->
     <!--menu button icon-->
     <Style x:Key="menuButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
@@ -60,7 +59,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <!-- controll button style-->
+    <!-- control button-->
     <Style x:Key="controlButton" TargetType="Button">
         <!--normal button style-->
         <Setter Property="BorderThickness" Value="0.9"/>
@@ -104,7 +103,7 @@
         <Setter Property="Height" Value="9"/>
     </Style>
 
-    <!--logout button style-->
+    <!--logout button-->
     <Style x:Key="logoutButtonStyle" TargetType="RadioButton">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5,0,0,5"/>
@@ -137,7 +136,7 @@
         </Style.Triggers>
     </Style>
 
-    <!-- icon btn style-->
+    <!-- icon btn-->
     <Style x:Key="iconButton" TargetType="Button">
         <!--normal button style-->
         <Setter Property="Cursor" Value="Hand"/>
@@ -169,11 +168,11 @@
         <Setter Property="Height" Value="16"/>
     </Style>
     
-    <!-- edit btn style -->
+    <!--edit btn-->
     <Style x:Key="editButton" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#C5B2E7"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="BorderBrush" Value="#393A3E"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 
         <Setter Property="Template">
@@ -181,11 +180,13 @@
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
                         BorderThickness="1"
-                        BorderBrush="{TemplateBinding BorderBrush}">
+                        CornerRadius="7"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                            Margin="1">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/icons8-ticket.png" 
-                               Width="12" Height="12" VerticalAlignment="Center"/>
-                            <ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              VerticalAlignment="Center" 
+                                              Margin="2"/>
                         </StackPanel>
                     </Border>
                 </ControlTemplate>
@@ -198,5 +199,81 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    <!--suggest-->
+    <Style x:Key="suggestButton" TargetType="Button">
+        <Setter Property="Background" Value="#303032"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <!-- Icon (Image) -->
+                            <Image Source="/Images/suggestIcon.png" Width="27" Height="27" Margin="1"/>
+                            <TextBlock Text="Get Suggest"
+                                       FontWeight="Bold"
+                                       
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <!-- Content (Text) -->
+                            <ContentPresenter/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#48955A"/>
+            </Trigger>
 
+            <!-- Pressed shadow effect -->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#48955A" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--save&exit-->
+    <Style x:Key="saveAndExitButton" TargetType="Button">
+        <Setter Property="Background" Value="#2F2F30"/>
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="150" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <!-- Icon (Image) -->
+                            <Image Source="/Images/saveAndExitIcon.png" Width="17" Height="17" Margin="5"/>
+                            <TextBlock Text="Save/Exit"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <!-- Content (Text) -->
+                            <ContentPresenter/>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#828DCF"/>
+            </Trigger>
+
+            <!-- Pressed shadow effect -->
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect Color="#828DCF" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

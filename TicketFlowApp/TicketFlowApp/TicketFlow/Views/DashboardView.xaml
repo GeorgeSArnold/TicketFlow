@@ -17,7 +17,7 @@
             <Border CornerRadius="12"
             BorderThickness="2"
             Opacity="0.98">
-                
+
                 <!--border style-->
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -27,7 +27,6 @@
                     </LinearGradientBrush>
                 </Border.BorderBrush>
             </Border>
-
         </Border>
     </Grid>
 </UserControl>

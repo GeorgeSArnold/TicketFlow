@@ -7,11 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="Transparent">
+    
     <UserControl.Resources>
         <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
     </UserControl.Resources>
+    
     <Grid >
-        <Border CornerRadius="12">
+        <Border CornerRadius="12" Effect="{StaticResource Shadow}">
 
             <!--background image-->
             <Border.Background>
@@ -22,7 +24,7 @@
             <!--main background-->
             <Border CornerRadius="12"
             BorderThickness="2"
-            Opacity="0.90">
+            Opacity="0.77">
                 
                 <!--border style-->
                 <Border.BorderBrush>
@@ -41,19 +43,18 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <StackPanel Margin="20,200,0,0"
+                <StackPanel Margin="20,100,0,0"
                     Effect="{StaticResource Shadow}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-                <TextBlock
-                    Margin="22"
-                    Foreground="WhiteSmoke"
-                    FontSize="22"
-                    >
-                    Version 1.0.0.1
-                </TextBlock>
                     <TextBlock
-                        Margin="5"
+                    Margin="10"
+                    Foreground="White"
+                    FontSize="22">                       
+                    Version 1.0.0.1
+                    </TextBlock>
+                    <TextBlock
+                        Margin="2"
                     Foreground="WhiteSmoke"
                     FontSize="12"
                     HorizontalAlignment="Center">
@@ -62,7 +63,7 @@
                     <TextBlock
                         Margin="15"
                         HorizontalAlignment="Center"
-                    Foreground="Silver"
+                    Foreground="White"
                     FontSize="22">
                         G.S
                     </TextBlock>
@@ -72,9 +73,7 @@
                     FontSize="12">
                         September 2023
                     </TextBlock>
-
                 </StackPanel>
-
             </Border>
         </Border>
     </Grid>

@@ -28,8 +28,6 @@ namespace TicketFlow.Views
             ObservableCollection<TicketModel> tickets = new ObservableCollection<TicketModel>();
             InitializeComponent();
 
-            var converter = new BrushConverter();
-
             // DUMMY TICKETS
             // create items > DataGrid
             tickets.Add(new TicketModel { Id = "1", UserId = "1", Name = "Ticket01ITA", Created = "12.03.2023:09:32", Status = "open", Article = new string[] { "Hallo IT!", "mein zweiter Monitor ist ausgefallen!" } });
@@ -48,8 +46,8 @@ namespace TicketFlow.Views
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-
+            EditView editView = new EditView();
+            editView.Show();
         }
-
     }
 }

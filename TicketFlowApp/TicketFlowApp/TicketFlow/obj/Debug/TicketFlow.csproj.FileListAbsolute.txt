@@ -45,3 +45,4 @@ C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\LoginVie
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\DatagridStyle.baml
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\EditView.g.cs
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Views\EditView.baml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\RichTxtBoxStyle.baml

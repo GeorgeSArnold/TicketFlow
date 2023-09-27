@@ -25,18 +25,13 @@ namespace TicketFlow.Views
     /// </summary>
     public partial class MainView : Window
     {
-
-
         public MainView()
         {
             InitializeComponent();
-
-
         }
 
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-
 
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
@@ -74,6 +69,5 @@ namespace TicketFlow.Views
             else
                 this.WindowState = WindowState.Normal;
         }
-
     }
 }

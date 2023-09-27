@@ -4,21 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
 using TicketFlow.Views;
 
 namespace TicketFlow.ViewModels
 {
     public class MainViewModel : Conductor<object>
     {
-        //private LoginViewModel _loginVM;
-
-        //public MainViewModel(LoginViewModel loginVM)
-        //{
-        //    _loginVM = loginVM;
-        //    ActivateItemAsync(loginVM);
-        //}
-
-        // dynamic title
         private string activeItemTitle;
         public string ActiveItemTitle
         {
@@ -62,6 +55,4 @@ namespace TicketFlow.ViewModels
             ActivateItemAsync(new LoginViewModel());
         }
     }
-
-
 }

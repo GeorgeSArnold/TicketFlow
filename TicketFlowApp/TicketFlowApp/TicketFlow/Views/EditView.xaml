@@ -5,8 +5,287 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicketFlow.Views"
         mc:Ignorable="d"
-        Title="EditView" Height="450" Width="800">
+        Title="EditView" Height="600" Width="980"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        MouseDown="Window_MouseDown">
+
     <Grid>
-        
+        <Border CornerRadius="12">
+            <!--background image-->
+            <Border.Background>
+                <!--<ImageBrush ImageSource="/Images/RoboTicket.png"
+                        Stretch="Uniform"/>-->
+                <SolidColorBrush Color="#40414F"/>
+            </Border.Background>
+                    
+            <!--main background-->
+            <Border CornerRadius="12"
+            BorderThickness="2"
+            Opacity="0.94">
+                          
+                <!--border style-->
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Silver" Offset="0"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="LightSlateGray" Offset="0.0"/>
+                        <GradientStop Color="{StaticResource secondaryBackcolor3}" Offset="0.003"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <!--title bar-->
+                <Grid Effect="{StaticResource Shadow}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!--control bar-->
+                            <RowDefinition Height="35"/>
+                            <!--header / caption-->
+                            <RowDefinition Height="35"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--control bar-->
+                        <StackPanel x:Name="pnlControllBar"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    Background="Transparent"
+                                    Margin="0,0,5,0">
+
+                            <Button x:Name="btnClose"
+                                    Style="{StaticResource controlButton}"
+                                    Tag="{StaticResource color7}"
+                                    Click="btnClose_Click"
+                                    Margin="3">
+                                <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+
+                            <Button x:Name="btnMaximized"
+                                    Style="{StaticResource controlButton}"
+                                    Tag="{StaticResource color1}"
+                                    Click="btnMaximized_Click"
+                                    Margin="3">
+                                <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+                            <Button x:Name="btnMinimized"
+                                    Style="{StaticResource controlButton}"
+                                    Tag="{StaticResource color1}"
+                                    Click="btnMinimized_Click"
+                                    Margin="3">
+                                <fa:IconImage Icon="Minus" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="0" Grid.Column="0"
+                                        HorizontalAlignment="Left"
+                                        Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        Margin="5">
+                            <TextBlock 
+                                   Text="Edit View"
+                                   Foreground="WhiteSmoke"
+                                   FontSize="22"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Width="246"
+                                   />
+                        </StackPanel>
+                    </Grid>
+
+                    <!--menu elements-->
+                    <Grid Grid.Row="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <!-- Breite des StackPanels -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- Restliche Breite -->
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="StackProperties"
+                                Effect="{StaticResource Shadow}"
+                            Width="235"
+                            Height="253"
+                            BorderThickness="0.3"
+                            BorderBrush="gray"
+                            Margin="13,20,0,0"
+                            CornerRadius="20,20,20,20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
+                                    <GradientStop Color="LightSlateGray" Offset="0"/>
+                                    <GradientStop Color="{StaticResource secondaryBackcolor3}" Offset="0.01"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <!-- ticket propertys-->
+                            <StackPanel Effect="{StaticResource Shadow}">
+                                <TextBlock Text="Ticket Properties"
+                                            Foreground="LightGray"
+                                            FontSize="16"
+                                            FontWeight="Medium"
+                                            FontFamily="Montserrat"
+                                            HorizontalAlignment="Center"
+                                            TextWrapping="Wrap"
+                                            TextAlignment="Center"
+                                            Margin="20" Width="246"/>
+
+                                <TextBlock Text="ID"
+                                           FontSize="12"
+                                           FontWeight="Medium"
+                                           FontFamily="Montserrat"
+                                           Foreground="DarkGray"
+                                           Margin="3"/>
+                                
+                                <TextBox x:Name="txtBoxId"
+                                         Text=""
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Foreground="White"
+                                         CaretBrush="LightGray"
+                                         BorderBrush="DarkGray"
+                                         BorderThickness="0,0,0,1"
+                                         Height="28"
+                                         VerticalContentAlignment="Center"
+                                         Margin="5"
+                                         Padding="35,0,0,0">
+                                    
+                                    <TextBox.Background>
+                                        <ImageBrush ImageSource="/Images/ticketBlank.png"
+                                            Stretch="Uniform"
+                                            AlignmentX="Left"/>
+                                    </TextBox.Background>
+                                </TextBox>
+
+                                <TextBlock Text="User ID"
+                                           Foreground="DarkGray"
+                                           FontSize="12"
+                                           FontWeight="Medium"
+                                           FontFamily="Montserrat"
+                                           Margin="5"/>
+                                
+                                <TextBox x:Name="txtBoxUserId"
+                                           Text=""
+                                           FontSize="13"
+                                           FontWeight="Medium"
+                                           FontFamily="Montserrat"
+                                           Foreground="White"
+                                           CaretBrush="LightGray"
+                                           BorderBrush="DarkGray"
+                                           BorderThickness="0,0,0,1"
+                                           Height="28"
+                                           VerticalContentAlignment="Center"
+                                           Margin="5"
+                                           Padding="35,0,0,0">
+                                    
+                                    <TextBox.Background>
+                                        <ImageBrush ImageSource="/Images/idCard.png"
+                                                    Stretch="Uniform"
+                                                    AlignmentX="Left"/>
+                                    </TextBox.Background>
+                                </TextBox>
+
+                                <TextBlock Text="Name"
+                                           Foreground="DarkGray"
+                                           FontSize="12"
+                                           FontWeight="Medium"
+                                           FontFamily="Montserrat"
+                                           Margin="5"/>
+                                
+                                <TextBox x:Name="txtBoxPassword"
+                                         Text=""
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Foreground="White"
+                                         CaretBrush="LightGray"
+                                         BorderBrush="DarkGray"
+                                         BorderThickness="0,0,0,1"
+                                         Height="28"
+                                         VerticalContentAlignment="Center"
+                                         Margin="5"
+                                         Padding="35,0,0,0">
+                                    
+                                    <TextBox.Background>
+                                        <ImageBrush ImageSource="/Images/ticketNum.png"
+                                                    Stretch="Uniform"
+                                                    AlignmentX="Left"/>
+                                    </TextBox.Background>
+                                </TextBox>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel 
+                            Grid.Column="2"
+                            Grid.Row="0">
+                      
+                        <!-- content field -->
+                            <Border x:Name="ArticleContext"
+                                Grid.Column="2"                               
+                            Effect="{StaticResource Shadow}"
+                            Width="700"
+                            Height="430"
+                            Background="#2E2E2E"
+                            Margin="10"
+                            CornerRadius="20,20,20,20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                                                         
+                                <!--article textbox-->
+                                <Border>
+                                    <StackPanel>
+                                        <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
+                                             x:Name="txtBoxArticle"
+                                                     Height="405"
+                                                     Margin="10"
+                                                     Background="Transparent"
+                                                     Foreground="White"
+                                                     BorderBrush="Transparent">
+                                        </RichTextBox>
+                                    </StackPanel>
+                                </Border>
+                            </Border>
+
+                            <StackPanel 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Center"
+                                Margin="20">
+                                <Button
+                                    Style="{StaticResource suggestButton}"
+                                    Margin="5,0,100,0"/>
+                                <Button
+                                    Style="{StaticResource saveAndExitButton}"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Border>
     </Grid>
 </Window>

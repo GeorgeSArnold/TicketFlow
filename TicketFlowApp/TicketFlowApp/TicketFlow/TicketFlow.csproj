@@ -162,6 +162,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\RichTxtBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\UIColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,11 +203,25 @@
     <Resource Include="Images\UserPic.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\optionbg.png" />
     <Resource Include="Images\ticketbg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icons8-ticket.png" />
+    <Resource Include="Images\APISettingsBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\idCard.png" />
+    <Resource Include="Images\ticketBlank.png" />
+    <Resource Include="Images\ticketNum.png" />
+    <Resource Include="Images\ticketPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\editBtnIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\suggestIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\saveAndExitIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

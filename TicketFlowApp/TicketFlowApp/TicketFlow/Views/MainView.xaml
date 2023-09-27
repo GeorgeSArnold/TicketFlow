@@ -9,7 +9,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         
         mc:Ignorable="d"
-        Title="MainView" Height="700" Width="900"
+        Title="MainView" Height="800" Width="1333"
         
         MinHeight="700"
         MinWidth="900"
@@ -69,8 +69,8 @@
 
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="{StaticResource secondaryBackcolor4}" Offset="0"/>
-                            <GradientStop Color="{StaticResource secondaryBackcolor3}" Offset="0.1"/>
+                            <GradientStop Color="LightSlateGray" Offset="0"/>
+                            <GradientStop Color="{StaticResource secondaryBackcolor3}" Offset="0.04"/>
                         </LinearGradientBrush>
                     </Border.Background>
 

@@ -17,15 +17,16 @@
 
             <!--background image-->
             <Border.Background>
-                <ImageBrush ImageSource="/Images/optionbg.png"
-                        Stretch="Fill"/>
+                <ImageBrush ImageSource="/Images/APISettingsBG.png"
+                        Stretch="Uniform"
+                           />
             </Border.Background>
 
             <!--main background-->
             <Border CornerRadius="12"
             BorderThickness="2"
-            Opacity="0.94">
-                
+            Opacity="0.93">
+
                 <!--border style-->
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -75,18 +76,18 @@
                                    HorizontalAlignment="Center"
                                    TextWrapping="Wrap"
                                    TextAlignment="Center"
-                                   Margin="5" Width="246"/>
+                                   Margin="10" Width="246"/>
 
                         <!--server ip-->
                         <TextBlock Text="Zammad Server IP"
                                    Foreground="DarkGray"
-                                   FontSize="12"
+                                   FontSize="21"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
+                        
                         <TextBox x:Name="txtBoxServerIP"
-                             Text=""
-                             FontSize="13"
+                             FontSize="21"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Foreground="White"
@@ -108,10 +109,11 @@
                         <!--zammad token-->
                         <TextBlock Text="Zammad Token"
                                    Foreground="DarkGray"
-                                   FontSize="12"
+                                   FontSize="21"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
+                        
                         <TextBox x:Name="txtBoxZammadToken"
                              Text=""
                              FontSize="13"
@@ -136,10 +138,11 @@
                         <!--ChatGPT token-->
                         <TextBlock Text="ChatGPT Token"
                                    Foreground="DarkGray"
-                                   FontSize="12"
+                                   FontSize="21"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
+                        
                         <TextBox x:Name="txtChatgptToken"
                              Text=""
                              FontSize="13"
@@ -170,7 +173,7 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Margin="0,20,0,10"
+                            Margin="0,50,0,10"
                             Click="btnSaveSettings_Click">
 
                             <!--mouseover effect-->
@@ -214,7 +217,6 @@
                                    Margin="0,3,0,0"
                                    TextWrapping="Wrap"
                                    HorizontalAlignment="Center"/>
-
                     </StackPanel>
                 </Grid>
             </Border>
