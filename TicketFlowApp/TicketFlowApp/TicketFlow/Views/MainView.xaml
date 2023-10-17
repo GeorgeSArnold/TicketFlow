@@ -212,11 +212,16 @@
                         </Grid>
 
                         <!--window title dyn-->
-                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center"
+                                    Grid.Row="1">
                             <TextBlock 
-                                Foreground="White" 
-                                Text="{Binding ActiveItemTitle}" 
-                                FontSize="18"/>
+                                Text="{Binding ActiveItemTitle}"                              
+                                Foreground="#D0BDED" 
+                                FontSize="18"
+                                Margin="7"
+                                FontWeight="Bold"
+                                FontFamily="Cascadia Code"
+                                Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
 
                         <!--header / Caption-->

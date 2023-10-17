@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicketFlow.Views"
         mc:Ignorable="d"
-        Title="EditView" Height="600" Width="980"
+        Title="EditView" Height="555" Width="760"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        MouseDown="Window_MouseDown">
+       MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen">
+        
 
     <Grid>
         <Border CornerRadius="12">
@@ -30,7 +32,7 @@
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="Silver" Offset="0"/>
-                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.24"/>
+                        <GradientStop Color="LightSlateGray" Offset="0.24"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
@@ -130,7 +132,7 @@
                             Height="253"
                             BorderThickness="0.3"
                             BorderBrush="gray"
-                            Margin="13,20,0,0"
+                            Margin="12"
                             CornerRadius="20,20,20,20"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top">
@@ -144,22 +146,14 @@
 
                             <!-- ticket propertys-->
                             <StackPanel Effect="{StaticResource Shadow}">
-                                <TextBlock Text="Ticket Properties"
-                                            Foreground="LightGray"
-                                            FontSize="16"
-                                            FontWeight="Medium"
-                                            FontFamily="Montserrat"
-                                            HorizontalAlignment="Center"
-                                            TextWrapping="Wrap"
-                                            TextAlignment="Center"
-                                            Margin="20" Width="246"/>
+
 
                                 <TextBlock Text="ID"
-                                           FontSize="12"
+                                           FontSize="14"
                                            FontWeight="Medium"
                                            FontFamily="Montserrat"
                                            Foreground="DarkGray"
-                                           Margin="3"/>
+                                           Margin="7"/>
                                 
                                 <TextBox x:Name="txtBoxId"
                                          Text=""
@@ -182,12 +176,12 @@
                                     </TextBox.Background>
                                 </TextBox>
 
-                                <TextBlock Text="User ID"
+                                <TextBlock Text="Title"
                                            Foreground="DarkGray"
-                                           FontSize="12"
+                                           FontSize="14"
                                            FontWeight="Medium"
                                            FontFamily="Montserrat"
-                                           Margin="5"/>
+                                           Margin="7"/>
                                 
                                 <TextBox x:Name="txtBoxUserId"
                                            Text=""
@@ -210,12 +204,12 @@
                                     </TextBox.Background>
                                 </TextBox>
 
-                                <TextBlock Text="Name"
+                                <TextBlock Text="Article IDs"
                                            Foreground="DarkGray"
-                                           FontSize="12"
+                                           FontSize="14"
                                            FontWeight="Medium"
                                            FontFamily="Montserrat"
-                                           Margin="5"/>
+                                           Margin="7"/>
                                 
                                 <TextBox x:Name="txtBoxPassword"
                                          Text=""
@@ -248,8 +242,8 @@
                             <Border x:Name="ArticleContext"
                                 Grid.Column="2"                               
                             Effect="{StaticResource Shadow}"
-                            Width="700"
-                            Height="430"
+                            Width="auto"
+                            Height="auto"
                             Background="#2E2E2E"
                             Margin="10"
                             CornerRadius="20,20,20,20"
@@ -261,7 +255,7 @@
                                     <StackPanel>
                                         <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
                                              x:Name="txtBoxArticle"
-                                                     Height="405"
+                                                     Height="180"
                                                      Margin="10"
                                                      Background="Transparent"
                                                      Foreground="White"
@@ -280,6 +274,36 @@
                                     Margin="5,0,100,0"/>
                                 <Button
                                     Style="{StaticResource saveAndExitButton}"/>
+
+
+                            </StackPanel>
+                            <StackPanel>
+                                <Border 
+                                Grid.Column="2"                               
+                            Effect="{StaticResource Shadow}"
+                            Width="auto"
+                            Height="auto"
+                            Background="#2E2E2E"
+                            Margin="10"
+                            CornerRadius="20,20,20,20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+
+                                    <!--article textbox-->
+                                    <Border>
+                                        <StackPanel>
+                                            <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
+                                             x:Name="Response"
+                                                     Height="180"
+                                                     Margin="10"
+                                                     Background="Transparent"
+                                                     Foreground="White"
+                                                     BorderBrush="Transparent">
+                                            </RichTextBox>
+                                        </StackPanel>
+                                    </Border>
+                                </Border>
+
 
                             </StackPanel>
                         </StackPanel>

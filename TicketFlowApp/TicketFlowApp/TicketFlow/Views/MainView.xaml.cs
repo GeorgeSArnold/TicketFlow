@@ -15,7 +15,6 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TicketFlow.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace TicketFlow.Views
@@ -30,9 +29,13 @@ namespace TicketFlow.Views
             InitializeComponent();
         }
 
+
+
+
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        #region Window Logic
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -40,28 +43,23 @@ namespace TicketFlow.Views
                 DragMove();
             }
         }
-
         private void pnlControlBar_MouseLeftDown(object sender, MouseEventArgs e)
         {
             WindowInteropHelper helper = new WindowInteropHelper(this);
             SendMessage(helper.Handle, 161, 2, 0);
         }
-
         private void pnlControlBar_MouseEnter(object sender, MouseEventArgs e)
         {
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
-
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
         private void btnMinimized_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void btnMaximized_Click(object sender, RoutedEventArgs e)
         {
             if (this.WindowState == WindowState.Normal)
@@ -69,5 +67,6 @@ namespace TicketFlow.Views
             else
                 this.WindowState = WindowState.Normal;
         }
+        #endregion
     }
 }

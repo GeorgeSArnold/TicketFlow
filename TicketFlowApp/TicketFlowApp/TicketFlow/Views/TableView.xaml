@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TicketFlow.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="400" d:DesignWidth="675"
              Background="Transparent">
 
     <UserControl.Resources>
@@ -13,6 +13,15 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
         <Border CornerRadius="12">
 
             <!--background image-->
@@ -25,7 +34,6 @@
             <Border CornerRadius="12"
             BorderThickness="2"
             Opacity="0.98">
-
                 <!--border style-->
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -34,7 +42,6 @@
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-
                 <!--background style-->
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
@@ -42,40 +49,55 @@
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
-                <!-- DataGrid -->
+                <!-- DataGrid -->                          
                 <DataGrid Style="{DynamicResource DataGridStyle1}" 
                           CellStyle="{DynamicResource DataGridCellStyle1}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
+                          AutoGenerateColumns="False"
                           
-                          x:Name="ticketsDataGrid"
+                          x:Name="MyDataGrid"
                           
-                          AutoGenerateColumns="False" Margin="3" HorizontalAlignment="Center" 
+                          ItemsSource="{Binding TicketList}"
+                          SelectedItem="{Binding SelectedTicket}"                       
+                          Margin="3" HorizontalAlignment="Center" 
                           VerticalAlignment="Stretch"
-                          SelectionUnit="Cell" IsReadOnly="True">
+                           IsReadOnly="True">
+                          <!--SelectionUnit="Cell"-->
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
-                        <DataGridTextColumn Header="UserId" Binding="{Binding UserId}" Width="*"/>
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" />
-                        <DataGridTextColumn Header="Created" Binding="{Binding Created}" Width="*"/>
-                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" />
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="12" Width="auto"/>
+                        <DataGridTextColumn Header="Number" Binding="{Binding Number}" Width="auto"/>
+                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="auto" />
+                        <DataGridTextColumn Header="Group" Binding="{Binding Group}" Width="auto"/>
+                        <DataGridTextColumn Header="State" Binding="{Binding State}" Width="auto"/>
+                        <DataGridTextColumn Header="Priority" Binding="{Binding Priority}" Width="auto" />
+                        <DataGridTextColumn Header="Created at" Binding="{Binding Created_at}" Width="auto"/>
 
                         <!-- Operations Column -->
                         <DataGridTemplateColumn Header="Options">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal"
-                                                HorizontalAlignment="Right"
+                                    <StackPanel 
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Stretch"
                                                 VerticalAlignment="Center"
                                                 Margin="1"
                                                 Width="auto">
+
                                         <!-- Edit Button -->
-                                        <Button 
+                                        <Button
+                                            Grid.Row="1"
+                                            Grid.Column="1"
                                             Style="{StaticResource editButton}"
                                             Content="Edit Ticket"
-                                            Click="EditButton_Click"/>
-                                        <!-- Delete Button -->
+                                            Command="{Binding DataContext.EditTicketCommand, 
+                                            RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Stretch"
+                                            Margin="5"/>
+
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

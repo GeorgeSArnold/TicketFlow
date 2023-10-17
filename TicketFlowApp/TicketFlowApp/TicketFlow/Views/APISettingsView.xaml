@@ -85,8 +85,8 @@
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
-                        
-                        <TextBox x:Name="txtBoxServerIP"
+
+                        <TextBox x:Name="ServerIp" Text="{Binding ServerIp}"
                              FontSize="21"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -113,9 +113,8 @@
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
-                        
-                        <TextBox x:Name="txtBoxZammadToken"
-                             Text=""
+
+                        <TextBox x:Name="ZammadToken" Text="{Binding ZammadToken}"                           
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -142,9 +141,8 @@
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
                                    Margin="0,15,0,0"/>
-                        
-                        <TextBox x:Name="txtChatgptToken"
-                             Text=""
+
+                        <TextBox x:Name="GptToken" Text="{Binding GptToken}"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -164,8 +162,8 @@
                             </TextBox.Background>
                         </TextBox>
 
-                        <!--login button-->
-                        <Button x:Name="btnSaveSettings"
+                        <!--save button-->
+                        <Button x:Name="SaveConnectionDetails"
                             BorderThickness="0.9"
                             Content="Save Settings"
                             Foreground="WhiteSmoke"
@@ -173,7 +171,7 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Margin="0,50,0,10"
+                            Margin="15"
                             Click="btnSaveSettings_Click">
 
                             <!--mouseover effect-->
@@ -182,7 +180,7 @@
                                     <Setter Property="Background" Value="#54626D"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="White"/>
+                                            <Setter Property="Background" Value="Gray"/>
                                         </Trigger>
 
                                         <!--pressed shadow effect-->
@@ -198,7 +196,7 @@
                             </Button.Style>
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Width="150" Height="40"
+                                    <Border Width="130" Height="33"
                                         CornerRadius="20"
                                         Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
@@ -208,9 +206,73 @@
                             </Button.Template>
                         </Button>
 
-                        <!--custum error message-->
-                        <TextBlock Text="invalid Token or IP!"                       
-                                   Foreground="#D75960"
+                        <!--check button-->
+                        <Button x:Name="LoadConnectionDetails"
+                            BorderThickness="0.9"
+                            Content="Check Settings"
+                            Foreground="WhiteSmoke"
+                            FontSize="20"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="2"
+                            Margin="10"
+                            Click="btnSaveSettings_Click">
+
+                            <!--mouseover effect-->
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#54626D"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Gray"/>
+                                        </Trigger>
+
+                                        <!--pressed shadow effect-->
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Effect">
+                                                <Setter.Value>
+                                                    <DropShadowEffect Color="Black" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="135" Height="30"
+                                        CornerRadius="20"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <!--check message Server-->
+                        <TextBlock Text="{Binding LoadedServerIp}"                       
+                                   Foreground="GreenYellow"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,3,0,0"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center"/>
+
+                        <!--check message ZammadToken-->
+                        <TextBlock Text="{Binding LoadedZammadToken}"                       
+                                   Foreground="GreenYellow"
+                                   FontSize="12"
+                                   FontWeight="Medium"
+                                   FontFamily="Montserrat"
+                                   Margin="0,3,0,0"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center"/>
+
+                        <!--check message GptToken-->
+                        <TextBlock Text="{Binding LoadedGptToken}"                       
+                                   Foreground="GreenYellow"
                                    FontSize="12"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"

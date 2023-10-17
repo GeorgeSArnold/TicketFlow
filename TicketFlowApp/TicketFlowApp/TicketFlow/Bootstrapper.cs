@@ -21,6 +21,5 @@ namespace TicketFlow
         {
             DisplayRootViewForAsync<MainViewModel>();
         }
-
     }
 }

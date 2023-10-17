@@ -1,34 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using Caliburn.Micro;
 using TicketFlow.ViewModels;
+using Zammad_Lib.Models;
 
 namespace TicketFlow.Views
 {
     /// <summary>
-    /// Interaction logic for EditView.xaml
+    /// Get TicketModel Infos > open Child > new Window
     /// </summary>
     public partial class EditView : Window
     {
-        public EditView()
+        // const
+        public TicketModel SelectedTicket { get; set; }
+        public EditView(TicketModel selectedTicket)
         {
             InitializeComponent();
-            txtBoxArticle.CaretBrush = Brushes.White;
+            SelectedTicket = selectedTicket;
+            DataContext = new EditViewModel(SelectedTicket);
         }
 
+        #region Window Logic
         private void Window_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -59,5 +50,6 @@ namespace TicketFlow.Views
             else
                 this.WindowState = WindowState.Normal;
         }
+        #endregion
     }
 }

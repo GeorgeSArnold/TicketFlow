@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -83,7 +86,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Models\TicketModel.cs" />
+    <Compile Include="Utilitys\RelayCommand.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\APISettingsViewModel.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
@@ -222,6 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\saveAndExitIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zammad_Lib\Zammad_Lib.csproj">
+      <Project>{0f4a27b0-0329-4597-8744-a12a210207a7}</Project>
+      <Name>Zammad_Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

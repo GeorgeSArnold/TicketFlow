@@ -24,7 +24,7 @@
             <!--main background-->
             <Border CornerRadius="12"
             BorderThickness="2"
-            Opacity="0.77">
+            Opacity="0.88">
                 
                 <!--border style-->
                 <Border.BorderBrush>
@@ -43,7 +43,7 @@
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <StackPanel Margin="20,100,0,0"
+                <StackPanel Margin="20"
                     Effect="{StaticResource Shadow}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
