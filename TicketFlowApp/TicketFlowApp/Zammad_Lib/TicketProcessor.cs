@@ -13,7 +13,6 @@ namespace Zammad_Lib
     public class TicketProcessor
     {
         private static TicketProcessor _instance;
-
         public static TicketProcessor Instance
         {
             get
@@ -100,6 +99,35 @@ namespace Zammad_Lib
                     else
                     {
                         throw new Exception($"Failed to load articles. Status code: {response.StatusCode}");
+                    }
+                }
+            }
+        }
+
+        // Post Response > article > server
+        public async Task PostResponseAsArticle(int ticketId, string body, string apiUrl, string apiToken)
+        {
+            string url = $"{apiUrl}/api/v1/ticket_articles{ticketId}";
+
+            var articlePostModel = new ArticlePostModel
+            {
+                ticket_id = ticketId,
+                body = body
+            };
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+
+                var jsonContent = JsonConvert.SerializeObject(articlePostModel);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+
+                using (HttpResponseMessage response = await client.PostAsync(url, content))
+                {
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception($"Failed to post article. Status code: {response.StatusCode}");
                     }
                 }
             }

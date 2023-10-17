@@ -9,7 +9,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         
         mc:Ignorable="d"
-        Title="MainView" Height="800" Width="1333"
+        Title="MainView" Height="786" Width="1124"
         
         MinHeight="700"
         MinWidth="900"
@@ -81,11 +81,12 @@
                                 Height="37"
                                 Margin="15,25,0,40"
                                 VerticalAlignment="Top">
-                                <Image Source="/Images/TicketFlowLogo.png" Height="30"/>
-                                <Image Source="/Images/TF_vektor.png" Height="30"/>
-
                                 <Image Source="/Images/icons8-chatgpt-30.png" Height="30"
-                                       Margin="4" />
+                                       Margin="3,0,10,0" />
+                                <Image Source="/Images/TicketFlowLogo.png" Height="30"/>
+                                <Image Source="/Images/TF_vektor.png" Height="37"/>
+
+
                                 <Image Source="/Images/zammad_vektor.png" Height="30"
                                        Margin="4"/>
                             </StackPanel>

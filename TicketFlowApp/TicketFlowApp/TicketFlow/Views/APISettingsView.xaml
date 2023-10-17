@@ -224,7 +224,7 @@
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter Property="Background" Value="#22863A"/>
-                                            <Setter Property="Background" Value="Black"/>
+                                            <Setter Property="Foreground" Value="Black"/>
                                         </Trigger>
 
                                         <!--pressed shadow effect-->

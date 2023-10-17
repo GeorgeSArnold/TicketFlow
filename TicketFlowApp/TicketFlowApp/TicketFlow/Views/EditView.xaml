@@ -14,7 +14,6 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip">
         
-
     <Grid>
         <Border CornerRadius="12">
             <!--background image-->
@@ -258,8 +257,9 @@
                                                      Height="212"
                                                      Margin="8"
                                                      Background="Transparent"
-                                                     Foreground="White"
-                                                     BorderBrush="Transparent">
+                                                     Foreground="WhiteSmoke"
+                                                     BorderBrush="Transparent"
+                                                     FontSize="15">
                                             <FlowDocument>
                                                 <Paragraph>
                                                     <Run x:Name="LastArticleBody" Text="{Binding LastArticleBody}"/>
@@ -308,8 +308,9 @@
                                                      Height="200"
                                                          Margin="8"
                                                      Background="Transparent"
-                                                     Foreground="White"
-                                                     BorderBrush="Transparent">
+                                                     Foreground="WhiteSmoke"
+                                                     BorderBrush="Transparent"
+                                                     FontSize="15">
 
                                                 <FlowDocument>
                                                     <Paragraph>
@@ -320,8 +321,6 @@
                                         </StackPanel>
                                     </Border>
                                 </Border>
-
-
                             </StackPanel>
                         </StackPanel>
                     </Grid>

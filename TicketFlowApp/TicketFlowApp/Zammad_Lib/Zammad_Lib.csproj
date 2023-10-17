@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\ArticleModel.cs" />
+    <Compile Include="Models\ArticlePostModel.cs" />
     <Compile Include="Models\TicketModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TicketProcessor.cs" />

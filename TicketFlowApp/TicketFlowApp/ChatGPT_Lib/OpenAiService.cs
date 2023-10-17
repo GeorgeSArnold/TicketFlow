@@ -51,7 +51,7 @@ namespace ChatGPT_Lib
             var content = jsonResponse.choices[0].message.content;
             return content;
         }
-
+        // dialog
         public async Task<string> GenerateBotDialog(string userPrompt)
         {
             var dialog = new DialogModel

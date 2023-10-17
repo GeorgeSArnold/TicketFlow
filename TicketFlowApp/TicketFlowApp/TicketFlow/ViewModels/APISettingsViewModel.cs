@@ -91,6 +91,7 @@ namespace TicketFlow.ViewModels
         public APISettingsViewModel()
         {
             connectionManager = new ConnectionManager();
+            LoadConnectionDetails();
         }
 
         // get methods
