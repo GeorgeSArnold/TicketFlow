@@ -66,3 +66,6 @@ C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\Newtonsoft.Jso
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\System.Buffers.xml
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\System.Numerics.Vectors.xml
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.dll
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.pdb
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.dll.config

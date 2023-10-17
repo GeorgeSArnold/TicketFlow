@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Caliburn.Micro;
-using Newtonsoft.Json;
+using TicketFlow.Utilitys;
 
 namespace TicketFlow.ViewModels
 {
@@ -88,10 +84,13 @@ namespace TicketFlow.ViewModels
         }
         private string loadedGptToken;
 
+        // connection instance
+        private ConnectionManager connectionManager;
+
         // const
         public APISettingsViewModel()
         {
-            LoadConnectionDetails();
+            connectionManager = new ConnectionManager();
         }
 
         // get methods
@@ -108,50 +107,130 @@ namespace TicketFlow.ViewModels
             return loadedGptToken;
         }
 
-        // save & load
+        #region checkmessages ip, tokens
+        // fields > checkmessages
+        private string checkMessageServer;
+        public string CheckMessageServer
+        {
+            get { return checkMessageServer; }
+            set
+            {
+                checkMessageServer = value;
+                NotifyOfPropertyChange(() => CheckMessageServer);
+            }
+        }
+        private string checkMessageZammad;
+        public string CheckMessageZammad
+        {
+            get { return checkMessageZammad; }
+            set
+            {
+                checkMessageZammad = value;
+                NotifyOfPropertyChange(() => CheckMessageZammad);
+            }
+        }
+        private string checkMessageGPT;
+        public string CheckMessageGPT
+        {
+            get { return checkMessageGPT; }
+            set
+            {
+                checkMessageGPT = value;
+                NotifyOfPropertyChange(() => CheckMessageGPT);
+            }
+        }
+        #endregion
+
+        #region checkmessages
+        // check bools
+        private bool isServerIpValidAndSaved;
+        public bool IsServerIpValidAndSaved
+        {
+            get { return isServerIpValidAndSaved; }
+            set
+            {
+                isServerIpValidAndSaved = value;
+                NotifyOfPropertyChange(() => IsServerIpValidAndSaved);
+            }
+        }
+        private bool isZammadTokenValidAndSaved;
+        public bool IsZammadTokenValidAndSaved
+        {
+            get { return isZammadTokenValidAndSaved; }
+            set
+            {
+                isZammadTokenValidAndSaved = value;
+                NotifyOfPropertyChange(() => IsZammadTokenValidAndSaved);
+            }
+        }
+        private bool isGptTokenValidAndSaved;
+        public bool IsGptTokenValidAndSaved
+        {
+            get { return isGptTokenValidAndSaved; }
+            set
+            {
+                isGptTokenValidAndSaved = value;
+                NotifyOfPropertyChange(() => IsGptTokenValidAndSaved);
+            }
+        }
+        #endregion
+
+        // methods save & check btns > UI
         public void SaveConnectionDetails()
         {
             try
             {
-                var connectionDetails = new
+                if (string.IsNullOrWhiteSpace(ServerIp) && string.IsNullOrWhiteSpace(ZammadToken) && string.IsNullOrWhiteSpace(GptToken))
                 {
-                    ServerIp,
-                    ZammadToken,
-                    GptToken
-                };
+                    MessageBox.Show("Please fill in at least one connection detail.");
+                    return;
+                }
 
-                string json = JsonConvert.SerializeObject(connectionDetails);
-                File.WriteAllText("connection.json", json);
-                MessageBox.Show("Connection details saved successfully!");
+                if (!string.IsNullOrWhiteSpace(ServerIp))
+                    connectionManager.ServerIp = ServerIp;
+
+                if (!string.IsNullOrWhiteSpace(ZammadToken))
+                    connectionManager.ZammadToken = ZammadToken;
+
+                if (!string.IsNullOrWhiteSpace(GptToken))
+                    connectionManager.GptToken = GptToken;
+
+                connectionManager.SaveConnectionDetails();
+
+                if (!string.IsNullOrWhiteSpace(connectionManager.ServerIp))
+                    CheckMessageServer = "Server IP valid and saved";
+
+                if (!string.IsNullOrWhiteSpace(connectionManager.ZammadToken))
+                    CheckMessageZammad = "Zammad Token valid and saved";
+
+                if (!string.IsNullOrWhiteSpace(connectionManager.GptToken))
+                    CheckMessageGPT = "ChatGPT Token valid and saved";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving connection details: " + ex.Message);
             }
         }
-        // check saved?
         public void LoadConnectionDetails()
         {
-            try
-            {
-                if (File.Exists("connection.json"))
-                {
-                    string json = File.ReadAllText("connection.json");
-                    var connectionDetails = JsonConvert.DeserializeObject<dynamic>(json);
+            LoadedServerIp = connectionManager.ServerIp;
+            LoadedZammadToken = connectionManager.ZammadToken;
+            LoadedGptToken = connectionManager.GptToken;
 
-                    LoadedServerIp = connectionDetails.ServerIp;
-                    LoadedZammadToken = connectionDetails.ZammadToken;
-                    LoadedGptToken = connectionDetails.GptToken;
-                }
-                else
-                {
-                    MessageBox.Show("No saved connection details found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("connection.json invalid! " + ex.Message);
-            }
+            if (string.IsNullOrWhiteSpace(LoadedServerIp))
+                CheckMessageServer = "Server IP not found";
+            else
+                CheckMessageServer = "Server IP valid and saved";
+
+            if (string.IsNullOrWhiteSpace(LoadedZammadToken))
+                CheckMessageZammad = "Zammad Token not found";
+            else
+                CheckMessageZammad = "Zammad Token valid and saved";
+
+            if (string.IsNullOrWhiteSpace(LoadedGptToken))
+                CheckMessageGPT = "ChatGPT Token not found";
+            else
+                CheckMessageGPT = "ChatGPT Token valid and saved";
         }
     }
 }

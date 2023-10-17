@@ -7,6 +7,8 @@ using System.Windows.Input;
 using TicketFlow.Utilitys;
 using Zammad_Lib;
 using Zammad_Lib.Models;
+using ChatGPT_Lib;
+using ChatGPT_Lib.Models;
 
 
 namespace TicketFlow.ViewModels
@@ -169,7 +171,7 @@ namespace TicketFlow.ViewModels
                 {
                     Articles = new List<ArticleModel>(articles);
                     ArticleModel latestArticle = GetLatestArticle(articles);
-                    Body = CleanBodyFromTags(latestArticle);
+                    LastArticleBody = CleanBodyFromTags(latestArticle);
 
                     ArticleIdsString = string.Join(", ", articles.Select(a => a.Id));
 
@@ -240,66 +242,76 @@ namespace TicketFlow.ViewModels
             get
             {
                 if (getsuggestCommand == null)
-                    getsuggestCommand = new RelayCommand(param => GetSuggest());
+                    getsuggestCommand = new RelayCommand(param => GetSuggest(LastArticleBody));
                 return getsuggestCommand;
             }
         }
-        private ICommand clearRTxtBCommand;
-        public ICommand ClearRTxtBCommand
+        // input <--- article body 
+        private string lastArticleBody;
+        public string LastArticleBody 
+        {
+            get { return lastArticleBody; }
+            set
+            {
+                lastArticleBody = value;
+                NotifyOfPropertyChange(() => LastArticleBody);
+            }
+        }
+        // output ---> responseBody  
+        private string responseBody;
+        public string ResponseBody
+        {
+            get { return responseBody; }
+            set
+            {
+                responseBody = value;
+                NotifyOfPropertyChange(() => ResponseBody);
+            }
+        }
+        // update article > zammad
+        private ICommand updateArticleCommand;
+        public ICommand UpdateArticleCommand
         {
             get
             {
-                if (clearRTxtBCommand == null)
-                    clearRTxtBCommand = new RelayCommand(param => ClearRTxtB());
-                return clearRTxtBCommand;
-            }
-        }
-        private ICommand undoTextCommand;
-        public ICommand UndoTextCommand
-        {
-            get
-            {
-                if (undoTextCommand == null)
-                    undoTextCommand = new RelayCommand(param => UndoText());
-                return undoTextCommand;
+                if (updateArticleCommand == null)
+                    updateArticleCommand = new RelayCommand(param => UpdateArticle());
+                return updateArticleCommand;
             }
         }
 
-        // methods btns > UI
-        public void GetSuggest()
+        // methods btns > UI > api
+        public async Task GetSuggest(string LastArticleBody)
         {
-            Console.WriteLine("---> ChatGPT Suggest Button clicked <---");
-        }
-        public void ClearRTxtB()
-        {
-            if (Body != null)
+            await Console.Out.WriteLineAsync("---> send btn clicked <---");
+            try
             {
-                Body = string.Empty;
-                SaveCurrentText();
+                APISettingsViewModel asvm = new APISettingsViewModel();
+                string apiToken = asvm.GetGptToken();
+                OpenAiService openAiService = OpenAiService.GetInstance(apiToken);
+
+                await Console.Out.WriteLineAsync("---> sending promt <---");
+                string completion = await openAiService.GetCompletions(LastArticleBody);
+                await Console.Out.WriteLineAsync("---> get completion <---");
+
+                Console.WriteLine("Response: " + completion);
+
+                await Console.Out.WriteLineAsync("---> complation > Response prop <---");
+                ResponseBody = completion;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
 
-        // methods
-        private Stack<string> textUndoStack = new Stack<string>();
-        private string currentText = string.Empty;
-        public void SaveCurrentText()
+        public void UpdateArticle()
         {
-            currentText = Body;
-            textUndoStack.Push(currentText);
-        }
-        public void Undo()
-        {
-            if (textUndoStack.Count > 0)
-            {
-                currentText = textUndoStack.Pop();
-                Body = currentText;
-            }
-        }
-        private void UndoText()
-        {
-            Console.WriteLine("## undo btn clicked");
-            SaveCurrentText();
-            Undo();
+            Console.WriteLine("---> update article clicked <---");
+
+            //TODO: send response txt > update > zammad
+            // API_Lib Ticketprocessor
+
         }
     }
 }

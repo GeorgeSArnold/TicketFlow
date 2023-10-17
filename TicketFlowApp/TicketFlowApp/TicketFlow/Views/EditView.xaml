@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicketFlow.Views"
         mc:Ignorable="d"
-        Title="EditView" Height="555" Width="760"
+        Title="EditView" Height="580" Width="760"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
        MouseDown="Window_MouseDown"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip">
         
 
     <Grid>
@@ -128,8 +129,8 @@
 
                         <Border x:Name="StackProperties"
                                 Effect="{StaticResource Shadow}"
-                            Width="235"
-                            Height="253"
+                            Width="222"
+                            Height="222"
                             BorderThickness="0.3"
                             BorderBrush="gray"
                             Margin="12"
@@ -155,8 +156,8 @@
                                            Foreground="DarkGray"
                                            Margin="7"/>
                                 
-                                <TextBox x:Name="txtBoxId"
-                                         Text=""
+                                <TextBox x:Name="Id"
+                                         Text="{Binding SelectedTicket.Id}"
                                          FontSize="13"
                                          FontWeight="Medium"
                                          FontFamily="Montserrat"
@@ -183,8 +184,8 @@
                                            FontFamily="Montserrat"
                                            Margin="7"/>
                                 
-                                <TextBox x:Name="txtBoxUserId"
-                                           Text=""
+                                <TextBox   x:Name="Title"
+                                           Text="{Binding SelectedTicket.Title}"
                                            FontSize="13"
                                            FontWeight="Medium"
                                            FontFamily="Montserrat"
@@ -210,9 +211,9 @@
                                            FontWeight="Medium"
                                            FontFamily="Montserrat"
                                            Margin="7"/>
-                                
-                                <TextBox x:Name="txtBoxPassword"
-                                         Text=""
+
+                                <TextBox x:Name="ArticleIdsString"
+                                         Text="{Binding ArticleIdsString, Mode=OneWay}"
                                          FontSize="13"
                                          FontWeight="Medium"
                                          FontFamily="Montserrat"
@@ -250,16 +251,20 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top">
                                                          
-                                <!--article textbox-->
+                                <!--article rtxtbox-->
                                 <Border>
                                     <StackPanel>
                                         <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
-                                             x:Name="txtBoxArticle"
-                                                     Height="180"
-                                                     Margin="10"
+                                                     Height="212"
+                                                     Margin="8"
                                                      Background="Transparent"
                                                      Foreground="White"
                                                      BorderBrush="Transparent">
+                                            <FlowDocument>
+                                                <Paragraph>
+                                                    <Run x:Name="LastArticleBody" Text="{Binding LastArticleBody}"/>
+                                                </Paragraph>
+                                            </FlowDocument>
                                         </RichTextBox>
                                     </StackPanel>
                                 </Border>
@@ -268,12 +273,19 @@
                             <StackPanel 
                                 Orientation="Horizontal" 
                                 HorizontalAlignment="Center"
-                                Margin="20">
+                                Margin="2">
+                                <!--get suggest btn-->
                                 <Button
+                                    x:Name="GetSuggest"
                                     Style="{StaticResource suggestButton}"
-                                    Margin="5,0,100,0"/>
+                                    Margin="10"
+                                    Command="{Binding DataContext.GetSuggestCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                <!--save&exit btn-->
                                 <Button
-                                    Style="{StaticResource saveAndExitButton}"/>
+                                    x:Name="UpdateArticle"
+                                    Style="{StaticResource saveAndExitButton}"
+                                    Margin="10"
+                                    Command="{Binding DataContext.UpdateArticleCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
 
                             </StackPanel>
@@ -285,20 +297,25 @@
                             Height="auto"
                             Background="#2E2E2E"
                             Margin="10"
-                            CornerRadius="20,20,20,20"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top">
+                            CornerRadius="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom">
 
-                                    <!--article textbox-->
+                                    <!--response rtxtbox-->
                                     <Border>
                                         <StackPanel>
-                                            <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
-                                             x:Name="Response"
-                                                     Height="180"
-                                                     Margin="10"
+                                            <RichTextBox Style="{DynamicResource RichTextBoxStyle1}"                                              
+                                                     Height="200"
+                                                         Margin="8"
                                                      Background="Transparent"
                                                      Foreground="White"
                                                      BorderBrush="Transparent">
+
+                                                <FlowDocument>
+                                                    <Paragraph>
+                                                        <Run x:Name="Response" Text="{Binding ResponseBody}"/>
+                                                    </Paragraph>
+                                                </FlowDocument>
                                             </RichTextBox>
                                         </StackPanel>
                                     </Border>

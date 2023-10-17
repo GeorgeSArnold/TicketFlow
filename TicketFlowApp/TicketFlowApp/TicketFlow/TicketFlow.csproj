@@ -86,6 +86,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Utilitys\ConnectionManager.cs" />
+    <Compile Include="Utilitys\Models\ConnectionDetailsModel.cs" />
     <Compile Include="Utilitys\RelayCommand.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\APISettingsViewModel.cs" />
@@ -227,6 +229,10 @@
     <Resource Include="Images\saveAndExitIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChatGPT_Lib\ChatGPT_Lib.csproj">
+      <Project>{82c3c11a-e472-43d8-928a-324ecd935417}</Project>
+      <Name>ChatGPT_Lib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Zammad_Lib\Zammad_Lib.csproj">
       <Project>{0f4a27b0-0329-4597-8744-a12a210207a7}</Project>
       <Name>Zammad_Lib</Name>

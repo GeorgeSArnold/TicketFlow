@@ -69,7 +69,7 @@
 
                         <!--head article-->
                         <TextBlock Text="Setup your Server IP and Tokens to use the Application properly"
-                                   Foreground="LightGray"
+                                   Foreground="WhiteSmoke"
                                    FontSize="12"
                                    FontWeight="Medium"
                                    FontFamily="Montserrat"
@@ -167,7 +167,7 @@
                             BorderThickness="0.9"
                             Content="Save Settings"
                             Foreground="WhiteSmoke"
-                            FontSize="20"
+                            FontSize="14"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
@@ -180,7 +180,7 @@
                                     <Setter Property="Background" Value="#54626D"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Gray"/>
+                                            <Setter Property="Background" Value="#22863A"/>
                                         </Trigger>
 
                                         <!--pressed shadow effect-->
@@ -196,8 +196,8 @@
                             </Button.Style>
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Width="130" Height="33"
-                                        CornerRadius="20"
+                                    <Border Width="117" Height="22"
+                                        CornerRadius="8"
                                         Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
@@ -211,12 +211,11 @@
                             BorderThickness="0.9"
                             Content="Check Settings"
                             Foreground="WhiteSmoke"
-                            FontSize="20"
+                            FontSize="14"
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Margin="10"
-                            Click="btnSaveSettings_Click">
+                            Margin="10">
 
                             <!--mouseover effect-->
                             <Button.Style>
@@ -224,7 +223,8 @@
                                     <Setter Property="Background" Value="#54626D"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Gray"/>
+                                            <Setter Property="Background" Value="#22863A"/>
+                                            <Setter Property="Background" Value="Black"/>
                                         </Trigger>
 
                                         <!--pressed shadow effect-->
@@ -240,8 +240,8 @@
                             </Button.Style>
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
-                                    <Border Width="135" Height="30"
-                                        CornerRadius="20"
+                                    <Border Width="117" Height="22"
+                                        CornerRadius="8"
                                         Background="{TemplateBinding Background}">
                                         <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
@@ -251,7 +251,7 @@
                         </Button>
 
                         <!--check message Server-->
-                        <TextBlock Text="{Binding LoadedServerIp}"                       
+                        <TextBlock Text="{Binding CheckMessageServer}"                       
                                    Foreground="GreenYellow"
                                    FontSize="12"
                                    FontWeight="Medium"
@@ -261,7 +261,7 @@
                                    HorizontalAlignment="Center"/>
 
                         <!--check message ZammadToken-->
-                        <TextBlock Text="{Binding LoadedZammadToken}"                       
+                        <TextBlock Text="{Binding CheckMessageZammad}"                       
                                    Foreground="GreenYellow"
                                    FontSize="12"
                                    FontWeight="Medium"
@@ -271,7 +271,7 @@
                                    HorizontalAlignment="Center"/>
 
                         <!--check message GptToken-->
-                        <TextBlock Text="{Binding LoadedGptToken}"                       
+                        <TextBlock Text="{Binding CheckMessageGPT}"                       
                                    Foreground="GreenYellow"
                                    FontSize="12"
                                    FontWeight="Medium"
