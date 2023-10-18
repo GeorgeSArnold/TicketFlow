@@ -167,7 +167,8 @@
                                          Height="28"
                                          VerticalContentAlignment="Center"
                                          Margin="5"
-                                         Padding="35,0,0,0">
+                                         Padding="35,0,0,0"
+                                         IsReadOnly="True">
                                     
                                     <TextBox.Background>
                                         <ImageBrush ImageSource="/Images/ticketBlank.png"
@@ -195,7 +196,8 @@
                                            Height="28"
                                            VerticalContentAlignment="Center"
                                            Margin="5"
-                                           Padding="35,0,0,0">
+                                           Padding="35,0,0,0"
+                                           IsReadOnly="True">
                                     
                                     <TextBox.Background>
                                         <ImageBrush ImageSource="/Images/idCard.png"
@@ -223,7 +225,8 @@
                                          Height="28"
                                          VerticalContentAlignment="Center"
                                          Margin="5"
-                                         Padding="35,0,0,0">
+                                         Padding="35,0,0,0"
+                                         IsReadOnly="True">
                                     
                                     <TextBox.Background>
                                         <ImageBrush ImageSource="/Images/ticketNum.png"
@@ -254,12 +257,20 @@
                                 <Border>
                                     <StackPanel>
                                         <RichTextBox Style="{DynamicResource RichTextBoxStyle1}" 
-                                                     Height="212"
+                                                     MinHeight="212"
+                                                     VerticalAlignment="Stretch"
+                                                     HorizontalAlignment="Stretch"
                                                      Margin="8"
                                                      Background="Transparent"
                                                      Foreground="WhiteSmoke"
                                                      BorderBrush="Transparent"
-                                                     FontSize="15">
+                                                     FontSize="15"
+                                                     IsReadOnly="False"
+                                                     AcceptsReturn="True"
+                                                     
+                                                     
+                                                     PreviewKeyDown="RichTextBox_PreviewKeyDown">
+                                            
                                             <FlowDocument>
                                                 <Paragraph>
                                                     <Run x:Name="LastArticleBody" Text="{Binding LastArticleBody}"/>
@@ -282,10 +293,10 @@
                                     Command="{Binding DataContext.GetSuggestCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
                                 <!--save&exit btn-->
                                 <Button
-                                    x:Name="UpdateArticle"
+                                    x:Name="PostResponseAsArticle"
                                     Style="{StaticResource saveAndExitButton}"
                                     Margin="10"
-                                    Command="{Binding DataContext.UpdateArticleCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                    Command="{Binding DataContext.PostResponseAsArticleCommand, RelativeSource={RelativeSource AncestorType=Window}}"/>
 
 
                             </StackPanel>
@@ -305,12 +316,19 @@
                                     <Border>
                                         <StackPanel>
                                             <RichTextBox Style="{DynamicResource RichTextBoxStyle1}"                                              
-                                                     Height="200"
-                                                         Margin="8"
+                                                     MinHeight="200"
+                                                     Height="auto"
+                                                     Margin="8"
+                                                     VerticalAlignment="Stretch"
+                                                     HorizontalAlignment="Stretch"
                                                      Background="Transparent"
                                                      Foreground="WhiteSmoke"
                                                      BorderBrush="Transparent"
-                                                     FontSize="15">
+                                                     FontSize="15"
+                                                     IsReadOnly="False"
+                                                     AcceptsReturn="True"
+                                                         
+                                                     PreviewKeyDown="RichTextBox_PreviewKeyDown_response">
 
                                                 <FlowDocument>
                                                     <Paragraph>

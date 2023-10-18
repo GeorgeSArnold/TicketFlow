@@ -227,7 +227,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#AF98D6"/>
+                <Setter Property="Background" Value="#66E30B"/>
                 <Setter Property="Foreground" Value="Black"/>
             </Trigger>
 
@@ -235,7 +235,7 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Effect">
                     <Setter.Value>
-                        <DropShadowEffect Color="#AF98D6" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                        <DropShadowEffect Color="#66E30B" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>
@@ -268,7 +268,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#AF98D6"/>
+                <Setter Property="Background" Value="#5EAFCE"/>
                 <Setter Property="Foreground" Value="Black"/>
             </Trigger>
 
@@ -276,7 +276,7 @@
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Effect">
                     <Setter.Value>
-                        <DropShadowEffect Color="#AF98D6" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
+                        <DropShadowEffect Color="#5EAFCE" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
                     </Setter.Value>
                 </Setter>
             </Trigger>

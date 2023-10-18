@@ -105,31 +105,31 @@ namespace Zammad_Lib
         }
 
         // Post Response > article > server
-        public async Task PostResponseAsArticle(int ticketId, string body, string apiUrl, string apiToken)
+        public async Task PostArticleToApi(ArticlePostModel articlePostModel, string apiUrl, string apiToken)
         {
-            string url = $"{apiUrl}/api/v1/ticket_articles{ticketId}";
-
-            var articlePostModel = new ArticlePostModel
+            try
             {
-                ticket_id = ticketId,
-                body = body
-            };
+                string url = $"{apiUrl}/api/v1/ticket_articles";
 
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
-
-                var jsonContent = JsonConvert.SerializeObject(articlePostModel);
-                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-
-                using (HttpResponseMessage response = await client.PostAsync(url, content))
+                using (HttpClient client = new HttpClient())
                 {
-                    if (!response.IsSuccessStatusCode)
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+
+                    var jsonContent = JsonConvert.SerializeObject(articlePostModel);
+                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                    using (HttpResponseMessage response = await client.PostAsync(url, content))
                     {
-                        throw new Exception($"Failed to post article. Status code: {response.StatusCode}");
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            throw new Exception($"Failed to post article. Status code: {response.StatusCode}");
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error posting article: " + ex.Message);
             }
         }
     }

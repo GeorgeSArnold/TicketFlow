@@ -270,12 +270,12 @@ namespace TicketFlow.ViewModels
         }
         // update article > zammad
         private ICommand updateArticleCommand;
-        public ICommand UpdateArticleCommand
+        public ICommand PostResponseAsArticleCommand
         {
             get
             {
                 if (updateArticleCommand == null)
-                    updateArticleCommand = new RelayCommand(param => UpdateArticle());
+                    updateArticleCommand = new RelayCommand(param => PostResponseAsArticle());
                 return updateArticleCommand;
             }
         }
@@ -305,13 +305,29 @@ namespace TicketFlow.ViewModels
             }
         }
 
-        public void UpdateArticle()
+        public async Task PostResponseAsArticle()
         {
             Console.WriteLine("---> update article clicked <---");
 
-            //TODO: send response txt > update > zammad
-            // API_Lib Ticketprocessor
+            try
+            {
+                TicketProcessor ticketProcessor = TicketProcessor.Instance;
+                APISettingsViewModel asvm = new APISettingsViewModel();
+                string apiToken = asvm.GetZammadToken();
+                string apiUrl = asvm.GetServerIp();
 
+                ArticlePostModel articlePostModel = new ArticlePostModel
+                {
+                    ticket_id = TicketId,
+                    body = ResponseBody
+                };
+
+                await ticketProcessor.PostArticleToApi(articlePostModel, apiUrl, apiToken);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }
