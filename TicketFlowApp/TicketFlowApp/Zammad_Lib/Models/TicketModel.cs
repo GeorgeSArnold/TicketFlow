@@ -75,7 +75,7 @@ namespace Zammad_Lib.Models
             MaxArticleIdsString = maxArticleId.ToString();  // Änderung hier
         }
         
-        // eventh
+        // event
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {

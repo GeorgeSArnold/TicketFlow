@@ -42,47 +42,47 @@ namespace TicketFlow.ViewModels
         }
 
         // load data
-        public async Task LoadDataTable()
-        {
-            try
-            {
-                List<TicketModel> tickets = new List<TicketModel>();
-                // load connection
-                TicketProcessor ticketProcessor = TicketProcessor.Instance;
-                APISettingsViewModel asvm = new APISettingsViewModel();
+        //public async Task LoadDataTable()
+        //{
+        //    try
+        //    {
+        //        List<TicketModel> tickets = new List<TicketModel>();
+        //        // load connection
+        //        TicketProcessor ticketProcessor = TicketProcessor.Instance;
+        //        APISettingsViewModel asvm = new APISettingsViewModel();
 
-                // get connection
-                string serverIP = asvm.GetServerIp();
-                string zammadToken = asvm.GetZammadToken();
+        //        // get connection
+        //        string serverIP = asvm.GetServerIp();
+        //        string zammadToken = asvm.GetZammadToken();
 
-                // load ticket
-                tickets = await ticketProcessor.LoadTickets(serverIP, zammadToken);
+        //        // load ticket
+        //        tickets = await ticketProcessor.LoadTickets(serverIP, zammadToken);
 
-                // check loaded ticket
-                if (tickets != null)
-                {
-                    // load tickets > bindableCollection > datagrid UI
-                    TicketList = new BindableCollection<TicketModel>(tickets);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("invalid ticket id... " + ex.Message);
-            }
-        }
+        //        // check loaded ticket
+        //        if (tickets != null)
+        //        {
+        //            // load tickets > bindableCollection > datagrid UI
+        //            TicketList = new BindableCollection<TicketModel>(tickets);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("invalid ticket id... " + ex.Message);
+        //    }
+        //}
 
         // methods
 
-        public void RefreshTable(List<TicketModel> tickets)
-        {
-            if (TicketList != null)
-            {
-                Console.WriteLine("# Refreshing TableView");
-                TicketList.Clear();
-                LoadDataTable();
-                NotifyOfPropertyChange(() => TicketList);
-            }
-        }
+        //public void RefreshTable(List<TicketModel> tickets)
+        //{
+        //    if (TicketList != null)
+        //    {
+        //        Console.WriteLine("# Refreshing TableView");
+        //        TicketList.Clear();
+        //        LoadDataTable();
+        //        NotifyOfPropertyChange(() => TicketList);
+        //    }
+        //}
 
         // bind EditTicket() > UI
         private ICommand editTicketCommand;
@@ -116,7 +116,7 @@ namespace TicketFlow.ViewModels
         // open > Window
         public void EditTicket()
         {
-            Console.WriteLine("# Bearbeiten geklickt");
+            Console.WriteLine("-> Edit-Ticket clicked");
 
             TicketModel selectedTicket = SelectedTicket;
 
@@ -131,20 +131,65 @@ namespace TicketFlow.ViewModels
             }
             else
             {
-                MessageBox.Show("Bitte wählen Sie ein Ticket aus.");
+                MessageBox.Show("Please choose ticket");
             }
         }
 
-        public void CheckSelectedTicket()
+        //TODO: paging
+        // Felder > paging: left arrow, right arrow, pagenumber
+
+        public static void LeftArrow()
         {
-            if (SelectedTicket != null)
+            Console.WriteLine("-> Left Arrow pressed");
+        }
+
+        private int siteNumber;
+        public int PageNumber
+        {
+            get { return siteNumber; }
+            set
             {
-                Console.WriteLine("Selected Ticket ID: " + SelectedTicket.Id);
-            }
-            else
-            {
-                Console.WriteLine("No Ticket Selected.");
+                siteNumber = value;
+                NotifyOfPropertyChange(() => siteNumber.ToString());
             }
         }
+
+
+        public static void RightArrow()
+        {
+            Console.WriteLine("-> Right Arrow pressed");
+        }
+
+        // TODO: modify mathode whit paging
+        public async Task LoadDataTable()
+        {
+            try
+            {
+                List<TicketModel> tickets = new List<TicketModel>();
+                // load connection
+                TicketProcessor ticketProcessor = TicketProcessor.Instance;
+                APISettingsViewModel asvm = new APISettingsViewModel();
+
+                // get connection
+                string serverIP = asvm.GetServerIp();
+                string zammadToken = asvm.GetZammadToken();
+
+                // load ticket
+                tickets = await ticketProcessor.LoadTickets(serverIP, zammadToken);
+
+                // check loaded ticket
+                if (tickets != null)
+                {
+                    // load tickets > bindableCollection > datagrid UI
+                    TicketList = new BindableCollection<TicketModel>(tickets);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("invalid ticket id... " + ex.Message);
+            }
+        }
+
+
     }
 }

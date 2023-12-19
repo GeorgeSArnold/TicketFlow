@@ -128,14 +128,14 @@
 
                         <Border x:Name="StackProperties"
                                 Effect="{StaticResource Shadow}"
-                            Width="222"
-                            Height="222"
-                            BorderThickness="0.3"
-                            BorderBrush="gray"
-                            Margin="12"
-                            CornerRadius="20,20,20,20"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top">
+                                Width="222"
+                                Height="222"
+                                BorderThickness="0.3"
+                                BorderBrush="gray"
+                                Margin="12"
+                                CornerRadius="20,20,20,20"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
 
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">

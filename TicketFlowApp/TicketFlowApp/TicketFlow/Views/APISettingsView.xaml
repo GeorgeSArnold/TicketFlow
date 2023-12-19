@@ -172,7 +172,6 @@
                             Cursor="Hand"
                             Grid.Column="2"
                             Margin="15"
-                            Click="btnSaveSettings_Click"
                             Style="{StaticResource GrayButtonStyle}">
 
 

@@ -53,30 +53,34 @@ namespace Zammad_Lib
             }
         }
 
-        // ticket > list > datagrid
-        public async Task<List<TicketModel>> LoadTickets(string apiUrl, string apiToken)
-        {
-            string url = $"{apiUrl}/api/v1/tickets?expand=true";
+        //// ticket > list > datagrid
+        //public async Task<List<TicketModel>> LoadTickets(string apiUrl, string apiToken)
+        //{
+        //    // load expand view ->
+        //    //string url = $"{apiUrl}/api/v1/tickets?expand=true";
 
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+        //    string url = $"{apiUrl}/api/v1/tickets?expand=true&order_by_id=desc&page=8&per_page=100";
 
-                using (HttpResponseMessage response = await client.GetAsync(url))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var ticketsJson = await response.Content.ReadAsStringAsync();
-                        List<TicketModel> tickets = JsonConvert.DeserializeObject<List<TicketModel>>(ticketsJson);
-                        return tickets;
-                    }
-                    else
-                    {
-                        throw new Exception($"Failed to load tickets. Status code: {response.StatusCode}");
-                    }
-                }
-            }
-        }
+
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+
+        //        using (HttpResponseMessage response = await client.GetAsync(url))
+        //        {
+        //            if (response.IsSuccessStatusCode)
+        //            {
+        //                var ticketsJson = await response.Content.ReadAsStringAsync();
+        //                List<TicketModel> tickets = JsonConvert.DeserializeObject<List<TicketModel>>(ticketsJson);
+        //                return tickets;
+        //            }
+        //            else
+        //            {
+        //                throw new Exception($"Failed to load tickets. Status code: {response.StatusCode}");
+        //            }
+        //        }
+        //    }
+        //}
 
         // article
         // load article > id
@@ -132,5 +136,60 @@ namespace Zammad_Lib
                 Console.WriteLine("Error posting article: " + ex.Message);
             }
         }
+
+
+        //___________________________________________________________________________________________________________________________________
+        //TODO: ticketslist > 100 per page 
+
+        // ticket > list > datagrid
+        public async Task<List<TicketModel>> LoadTickets(string apiUrl, string apiToken)
+        {
+            // fields
+            const int itemsPerPage = 100;
+            int currentPage = 1;
+            List<TicketModel> allTickets = new List<TicketModel>();
+
+            // check
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiToken);
+                
+                bool morePagesAvailable = true;
+                
+                while(morePagesAvailable)
+                {
+                    string url = $"{apiUrl}/api/v1/tickets?expand=true&order_by_id=desc&page={currentPage}&per_page={itemsPerPage}";
+
+                    using (HttpResponseMessage response = await client.GetAsync(url))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var ticketsJson = await response.Content.ReadAsStringAsync();
+                            List<TicketModel> tickets = JsonConvert.DeserializeObject<List<TicketModel>>(ticketsJson);
+
+                            if (tickets.Count > 0)
+                            {
+                                allTickets.AddRange(tickets);
+                                currentPage++;
+                            }
+                            else
+                            {
+                                morePagesAvailable = false;
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception($"-> Failed to load Tickets. Status code: {response.StatusCode}");
+                        }
+                    }
+                }
+                return allTickets; 
+            }
+        }
+
+        //TODO: Tickets > Paging
+
+
     }
 }

@@ -25,14 +25,5 @@ namespace TicketFlow.Views
             InitializeComponent();
         }
 
-        private void SaveTokens_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSaveSettings_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
