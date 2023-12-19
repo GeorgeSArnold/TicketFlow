@@ -10,6 +10,9 @@ using TicketFlow.Views;
 
 namespace TicketFlow.ViewModels
 {
+    /// <summary>
+    /// MVVM patern shellview = mainview
+    /// </summary>
     public class MainViewModel : Conductor<object>
     {
         private string activeItemTitle;

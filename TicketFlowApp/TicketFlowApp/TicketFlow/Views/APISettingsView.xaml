@@ -172,38 +172,10 @@
                             Cursor="Hand"
                             Grid.Column="2"
                             Margin="15"
-                            Click="btnSaveSettings_Click">
+                            Click="btnSaveSettings_Click"
+                            Style="{StaticResource GrayButtonStyle}">
 
-                            <!--mouseover effect-->
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#54626D"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#22863A"/>
-                                        </Trigger>
 
-                                        <!--pressed shadow effect-->
-                                        <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Effect">
-                                                <Setter.Value>
-                                                    <DropShadowEffect Color="Black" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="117" Height="22"
-                                        CornerRadius="8"
-                                        Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
                         </Button>
 
                         <!--check button-->
@@ -215,39 +187,8 @@
                             FontFamily="Montserrat"
                             Cursor="Hand"
                             Grid.Column="2"
-                            Margin="10">
-
-                            <!--mouseover effect-->
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#54626D"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#22863A"/>
-                                            <Setter Property="Foreground" Value="Black"/>
-                                        </Trigger>
-
-                                        <!--pressed shadow effect-->
-                                        <Trigger Property="IsPressed" Value="True">
-                                            <Setter Property="Effect">
-                                                <Setter.Value>
-                                                    <DropShadowEffect Color="Black" Direction="0" ShadowDepth="5" BlurRadius="5" Opacity="0.7"/>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="117" Height="22"
-                                        CornerRadius="8"
-                                        Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                            Margin="10"
+                            Style="{StaticResource GrayButtonStyle}">
                         </Button>
 
                         <!--check message Server-->

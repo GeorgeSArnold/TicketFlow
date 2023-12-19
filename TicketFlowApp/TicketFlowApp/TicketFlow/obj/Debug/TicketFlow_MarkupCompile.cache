@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\App.xaml
-111127313890
+15-1222022977
 
 22710467406
 26-1685566159
-Styles\ButtonStyles.xaml;Styles\DatagridStyle.xaml;Styles\RichTxtBoxStyle.xaml;Styles\UIColors.xaml;Views\AboutView.xaml;Views\APISettingsView.xaml;Views\DashboardView.xaml;Views\EditView.xaml;Views\LoginView.xaml;Views\MainView.xaml;Views\TableView.xaml;
+Styles\ButtonStyles.xaml;Styles\CheckBoxStyle.xaml;Styles\DatagridStyle.xaml;Styles\GrayButtonStyle.xaml;Styles\PagingStyle.xaml;Styles\RichTxtBoxStyle.xaml;Styles\TxtSearch.xaml;Styles\UIColors.xaml;Views\AboutView.xaml;Views\APISettingsView.xaml;Views\DashboardView.xaml;Views\EditView.xaml;Views\LoginView.xaml;Views\MainView.xaml;Views\TableView.xaml;
 
 False
 

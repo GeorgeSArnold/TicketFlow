@@ -13,6 +13,10 @@
                 <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="/Styles/DatagridStyle.xaml"/>
                 <ResourceDictionary Source="/Styles/RichTxtBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/TxtSearch.xaml"/>
+                <ResourceDictionary Source="/Styles/GrayButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/PagingStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

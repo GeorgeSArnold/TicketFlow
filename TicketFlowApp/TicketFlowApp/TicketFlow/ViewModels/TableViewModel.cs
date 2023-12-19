@@ -146,23 +146,5 @@ namespace TicketFlow.ViewModels
                 Console.WriteLine("No Ticket Selected.");
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

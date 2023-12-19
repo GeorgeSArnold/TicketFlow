@@ -15,10 +15,5 @@ namespace TicketFlow.Views
             DataContext = new TableViewModel();
 
         }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

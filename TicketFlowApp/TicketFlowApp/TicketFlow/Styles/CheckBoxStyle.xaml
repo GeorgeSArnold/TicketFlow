@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect Color="Black" Direction="270" ShadowDepth="3" Opacity="0.5"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid>
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Border x:Name="Border"
+                                    Background="Transparent"
+                                    BorderBrush="#54626D"
+                                    BorderThickness="1.5"
+                                    CornerRadius="3">
+                                    <Grid>
+                                        <Ellipse x:Name="CheckBackground"
+                                             Fill="Transparent"
+                                             StrokeThickness="2"
+                                             Stroke="WhiteSmoke"
+                                             Opacity="0"/>
+                                        <Path x:Name="CheckMark"
+                                          Width="13"
+                                          Height="13"
+                                          Stroke="WhiteSmoke"
+                                          StrokeThickness="2"
+                                          SnapsToDevicePixels="False"
+                                          Data="M 1.5 3 L 4.5 6 L 9 1"
+                                          Opacity="0"/>
+                                    </Grid>
+                                </Border>
+                            </BulletDecorator.Bullet>
+                        </BulletDecorator>
+                        <ContentPresenter HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Margin="20,0,0,0"
+                                      RecognizesAccessKey="True"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="CheckBackground" Property="Opacity" Value="1"/>
+                            <Setter TargetName="CheckMark" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#22863A"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

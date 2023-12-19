@@ -9,6 +9,9 @@ using TicketFlow.Views;
 
 namespace TicketFlow.ViewModels
 {
+    /// <summary>
+    /// apiUpdate : 1.0.0.2
+    /// </summary>
     public class LoginViewModel : Caliburn.Micro.Screen
     {
     }

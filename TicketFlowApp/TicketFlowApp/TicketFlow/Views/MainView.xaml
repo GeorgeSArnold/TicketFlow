@@ -9,7 +9,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         
         mc:Ignorable="d"
-        Title="MainView" Height="786" Width="1124"
+        Title="MainView" Height="786" Width="1600"
         
         MinHeight="700"
         MinWidth="900"

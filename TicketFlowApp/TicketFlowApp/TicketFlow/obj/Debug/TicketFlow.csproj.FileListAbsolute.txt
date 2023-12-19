@@ -69,3 +69,7 @@ C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\System.Runtime
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.dll
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.pdb
 C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\bin\Debug\ChatGPT_Lib.dll.config
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\TxtSearch.baml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\GrayButtonStyle.baml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\CheckBoxStyle.baml
+C:\Projektarbeit\TicketFlowApp\TicketFlowApp\TicketFlow\obj\Debug\Styles\PagingStyle.baml

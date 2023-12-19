@@ -14,6 +14,11 @@
     <Color x:Key="winBorderColor2">#C4A9EB</Color>
     <Color x:Key="winBorderColor3">#728393</Color>
 
+    <!--paging boders-->
+    <SolidColorBrush x:Key="pagingColor1">#54626D</SolidColorBrush>
+    <SolidColorBrush x:Key="pagingColor2">#708191</SolidColorBrush>
+    <SolidColorBrush x:Key="pagingColor3">#282A2C</SolidColorBrush>
+    
     <!--palette-->
     <SolidColorBrush x:Key="color1" Color="#CAB2F1"/>
     <SolidColorBrush x:Key="color2" Color="#784DFD"/>

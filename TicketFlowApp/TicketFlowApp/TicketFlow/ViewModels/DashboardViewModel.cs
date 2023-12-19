@@ -8,6 +8,9 @@ using Caliburn.Micro;
 
 namespace TicketFlow.ViewModels
 {
+    /// <summary>
+    /// updatenote: html link > Zammad ip/dashboard
+    /// </summary>
     public class DashboardViewModel : Caliburn.Micro.Screen
     {
     }

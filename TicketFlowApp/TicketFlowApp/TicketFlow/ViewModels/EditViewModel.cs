@@ -13,6 +13,10 @@ using ChatGPT_Lib.Models;
 
 namespace TicketFlow.ViewModels
 {
+    /// <summary>
+    /// EditView > Editing ArticleBody > ResponseBody 
+    /// Get ChatGpt Promt
+    /// </summary>
     public class EditViewModel : Caliburn.Micro.Screen
     {
         // props
@@ -155,7 +159,6 @@ namespace TicketFlow.ViewModels
                 {
                     TicketId = selectedTicket.Id;
                     Console.WriteLine("---> selected Ticket ID: " + TicketId);
-                    //LoadLatestArticleBody();
                 }
             }
         }
@@ -290,13 +293,13 @@ namespace TicketFlow.ViewModels
                 string apiToken = asvm.GetGptToken();
                 OpenAiService openAiService = OpenAiService.GetInstance(apiToken);
 
-                await Console.Out.WriteLineAsync("---> sending promt <---");
+                await Console.Out.WriteLineAsync("---> sending prompt --->");
                 string completion = await openAiService.GetCompletions(LastArticleBody);
-                await Console.Out.WriteLineAsync("---> get completion <---");
+                await Console.Out.WriteLineAsync("<--- get completion <---");
 
                 Console.WriteLine("Response: " + completion);
 
-                await Console.Out.WriteLineAsync("---> complation > Response prop <---");
+                await Console.Out.WriteLineAsync("-> complation Complete \n<- Response Complete <-");
                 ResponseBody = completion;
             }
             catch (Exception ex)
@@ -305,6 +308,7 @@ namespace TicketFlow.ViewModels
             }
         }
 
+        // post > responsebody > server
         public async Task PostResponseAsArticle()
         {
             Console.WriteLine("---> update article clicked <---");
@@ -323,6 +327,7 @@ namespace TicketFlow.ViewModels
                 };
 
                 await ticketProcessor.PostArticleToApi(articlePostModel, apiUrl, apiToken);
+                await Console.Out.WriteLineAsync("---> post response as article > server");
             }
             catch (Exception ex)
             {

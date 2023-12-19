@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicketFlow.Views"
         mc:Ignorable="d"
-        Title="EditView" Height="580" Width="760"
+        Title="EditView" Height="600" Width="760"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"

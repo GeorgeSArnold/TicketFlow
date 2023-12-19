@@ -4,37 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TicketFlow.Views"
+             
+                     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             
+             
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="590"
+             d:DesignHeight="400" d:DesignWidth="800"
              Background="Transparent">
 
     <UserControl.Resources>
-        <DropShadowEffect x:Key="Shadow" Color="Black" Direction="997" ShadowDepth="5" BlurRadius="9" Opacity="9"/>
+        <!-- Deine Ressourcen -->
     </UserControl.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
         <Border CornerRadius="12">
+            
+            
 
-            <!--background image-->
-            <Border.Background>
-                <ImageBrush ImageSource="/Images/ticketbg.png"
-                        Stretch="Fill"/>
-            </Border.Background>
-
-            <!--main background-->
             <Border CornerRadius="12"
-            BorderThickness="2"
-            Opacity="0.98">
-                <!--border style-->
+                    BorderThickness="2"
+                    Opacity="0.98">
+
                 <Border.BorderBrush>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="WhiteSmoke" Offset="0"/>
@@ -42,15 +44,101 @@
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-                <!--background style-->
+
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,2">
                         <GradientStop Color="{StaticResource primaryBackcolor2}" Offset="0.1"/>
                         <GradientStop Color="{StaticResource winBorderColor3}" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <!-- DataGrid -->                          
-                <DataGrid Style="{DynamicResource DataGridStyle1}" 
+
+                <StackPanel Grid.Column="0"
+                            Grid.Row="2"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Top"
+                            Margin="10">
+                      
+                    <!-- Search TxtBox -->
+                    <Grid Width="500"
+                          VerticalAlignment="Top"
+                          Height="30"
+                          HorizontalAlignment="Left"
+                          Margin="10">
+                        <TextBlock Margin="20 0"
+                                   VerticalAlignment="Center"
+                                   Foreground="WhiteSmoke"
+                                   IsHitTestVisible="False"
+                                   Panel.ZIndex="1"
+                                   Text="Search here ..." />
+                        <TextBox x:Name="txtSearch"
+                                 Style="{StaticResource textboxSearch}" />
+                    </Grid>
+
+                    <!-- Button -->
+                    <Button Content="Search"
+                            VerticalAlignment="Center"
+                            Margin="5"
+                            Style="{StaticResource GrayButtonStyle}"/>
+
+                    <!-- Checkbox -->
+                    <CheckBox Content="State Open"
+                              VerticalAlignment="Center"
+                              Margin="5"
+                              Foreground="WhiteSmoke"
+                              
+                              Style="{StaticResource CheckBoxStyle}"/>
+                </StackPanel>
+
+
+            </Border>
+
+
+        </Border>
+
+
+         <!--Paging Controls--> 
+        <StackPanel Grid.Row="0"
+                    Height="40"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="8">
+
+            <!--left arrow-->
+                <RadioButton Style="{StaticResource pagingButton}"
+                             VerticalAlignment="Center"
+                     x:Name="leftArrow">
+                    <fa:IconImage Icon="ArrowLeft" Style="{StaticResource pagingButtonIcon}"/>
+                </RadioButton>
+
+            <Rectangle Style="{StaticResource pagingRectangle}"/>
+
+            <TextBlock x:Name="SiteNumber"
+                       Text="Site Number"
+                       VerticalAlignment="Center"
+                       Style="{StaticResource pagingText}"/>
+
+            <Rectangle Style="{StaticResource pagingRectangle}"/>
+
+            <!--right arrow-->
+                <RadioButton Style="{StaticResource pagingButton}"
+                             VerticalAlignment="Center"
+                     x:Name="rightArrow">
+                    <fa:IconImage Icon="ArrowRight" Style="{StaticResource pagingButtonIcon}"/>
+                </RadioButton>
+
+        </StackPanel>
+
+
+
+
+        <!--DataGrid -->
+        <ScrollViewer Grid.Column="0"
+                    Grid.Row="0"
+                    
+                    Margin="10 60 0 50">
+
+            <DataGrid Style="{DynamicResource DataGridStyle1}" 
                           CellStyle="{DynamicResource DataGridCellStyle1}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
                           RowStyle="{DynamicResource DataGridRowStyle1}" 
@@ -63,21 +151,21 @@
                           Margin="3" HorizontalAlignment="Center" 
                           VerticalAlignment="Stretch"
                            IsReadOnly="True">
-                          <!--SelectionUnit="Cell"-->
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="12" Width="auto"/>
-                        <DataGridTextColumn Header="Number" Binding="{Binding Number}" Width="auto"/>
-                        <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="auto" />
-                        <DataGridTextColumn Header="Group" Binding="{Binding Group}" Width="auto"/>
-                        <DataGridTextColumn Header="State" Binding="{Binding State}" Width="auto"/>
-                        <DataGridTextColumn Header="Priority" Binding="{Binding Priority}" Width="auto" />
-                        <DataGridTextColumn Header="Created at" Binding="{Binding Created_at}" Width="auto"/>
+                <!--SelectionUnit="Cell"-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" MinWidth="12" Width="auto"/>
+                    <DataGridTextColumn Header="Number" Binding="{Binding Number}" Width="auto"/>
+                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="auto" />
+                    <DataGridTextColumn Header="Group" Binding="{Binding Group}" Width="auto"/>
+                    <DataGridTextColumn Header="State" Binding="{Binding State}" Width="auto"/>
+                    <DataGridTextColumn Header="Priority" Binding="{Binding Priority}" Width="auto" />
+                    <DataGridTextColumn Header="Created at" Binding="{Binding Created_at}" Width="auto"/>
 
-                        <!-- Operations Column -->
-                        <DataGridTemplateColumn Header="Options">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel 
+                    <!-- Operations Column -->
+                    <DataGridTemplateColumn Header="Options">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel 
                                             Grid.Row="1"
                                             Grid.Column="0"
                                                 Orientation="Horizontal"
@@ -86,8 +174,8 @@
                                                 Margin="1"
                                                 Width="auto">
 
-                                        <!-- Edit Button -->
-                                        <Button
+                                    <!-- Edit Button -->
+                                    <Button
                                             Grid.Row="1"
                                             Grid.Column="1"
                                             Style="{StaticResource editButton}"
@@ -98,13 +186,15 @@
                                             VerticalAlignment="Stretch"
                                             Margin="5"/>
 
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Border>
-        </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+        </ScrollViewer>
     </Grid>
 </UserControl>

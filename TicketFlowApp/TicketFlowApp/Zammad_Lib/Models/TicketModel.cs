@@ -68,13 +68,13 @@ namespace Zammad_Lib.Models
         {
             ArticleIdsString = string.Join(", ", Article_ids);
         }
-
         private void UpdateMaxArticleIdString()
         {
             // Finde die höchste Artikel-ID aus der Liste
             int maxArticleId = Article_ids.Any() ? Article_ids.Max() : 0;
             MaxArticleIdsString = maxArticleId.ToString();  // Änderung hier
         }
+        
         // eventh
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
